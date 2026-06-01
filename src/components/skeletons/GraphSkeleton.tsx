@@ -8,15 +8,15 @@ interface GraphSkeletonProps {
 
 const GraphSkeleton: React.FC<GraphSkeletonProps> = ({ className, height = 300 }) => {
   return (
-    <div className={`p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-6 ${className}`}>
+    <div className={`p-6 bg-white rounded-md border border-gray-100 shadow-sm flex flex-col gap-6 ${className}`}>
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <Skeleton variant="text" width={150} height={20} />
           <Skeleton variant="text" width={100} height={14} />
         </div>
         <div className="flex gap-2">
-          <Skeleton variant="rectangular" width={80} height={32} className="rounded-lg" />
-          <Skeleton variant="rectangular" width={80} height={32} className="rounded-lg" />
+          <Skeleton variant="rectangular" width={80} height={32} className="rounded-md" />
+          <Skeleton variant="rectangular" width={80} height={32} className="rounded-md" />
         </div>
       </div>
 

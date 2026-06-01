@@ -105,9 +105,9 @@ const ProfilePage: React.FC = () => {
             className="flex flex-col gap-6"
           >
             {/* User Card */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex items-center justify-between">
+            <div className="bg-white rounded-md border border-gray-100 shadow-sm p-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-tr from-primary-500 to-blue-400 p-[2.5px] shadow-lg shadow-primary-100">
+                <div className="h-16 w-16 rounded-md bg-gradient-to-tr from-primary-500 to-blue-400 p-[2.5px] shadow-lg shadow-primary-100">
                   <div className="h-full w-full rounded-[0.85rem] bg-white p-[2px]">
                     <img
                       src={member.avatar}
@@ -138,7 +138,7 @@ const ProfilePage: React.FC = () => {
             {/* Info Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Contact Info */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-6">
+              <div className="bg-white rounded-md border border-gray-100 shadow-sm p-6 flex flex-col gap-6">
                 <h3 className="font-black text-gray-900 text-base">Contact Information</h3>
                 <div className="grid grid-cols-2 gap-y-6 gap-x-8">
                   <div>
@@ -169,7 +169,7 @@ const ProfilePage: React.FC = () => {
               </div>
 
               {/* Working Hours */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-5">
+              <div className="bg-white rounded-md border border-gray-100 shadow-sm p-6 flex flex-col gap-5">
                 <div className="flex items-center justify-between">
                   <h3 className="font-black text-gray-900 text-base">Working Hour</h3>
                   <span className="font-black text-gray-900 text-base">40 Hours</span>
@@ -204,7 +204,7 @@ const ProfilePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+            className="bg-white rounded-md border border-gray-100 shadow-sm overflow-hidden"
           >
             <h3 className="text-xl font-black text-gray-900 px-6 py-6 border-b border-gray-50 flex items-center justify-between">
               <span>Total Projects: {member.totalProjects}</span>
@@ -237,13 +237,13 @@ const ProfilePage: React.FC = () => {
                         </div>
                       </td>
                       <td className="py-5 px-4">
-                        <span className={cn('text-[11px] font-black px-3 py-1.5 rounded-lg border', statusStyles[project.status] || '')}>
+                        <span className={cn('text-[11px] font-black px-3 py-1.5 rounded-md border', statusStyles[project.status] || '')}>
                           {project.status}
                         </span>
                       </td>
                       <td className="py-5 px-4 text-sm font-medium text-gray-500">{project.dueDate}</td>
                       <td className="py-5 px-4">
-                        <button className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 transition-colors">
+                        <button className="p-1.5 hover:bg-gray-100 rounded-md text-gray-400 transition-colors">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="12" cy="19" r="2" /></svg>
                         </button>
                       </td>

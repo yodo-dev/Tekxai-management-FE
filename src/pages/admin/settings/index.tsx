@@ -11,6 +11,7 @@ import { useGetMySettingsQuery, useUpdatePreferencesMutation, useChangePasswordM
 import InviteMemberModal from '@/components/ui/InviteMemberModal';
 import ActionModal from '@/components/ui/ActionModal';
 import { useDebounce } from '@/hooks/useDebounce';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const Setting: React.FC = () => {
     const toast = useToastContext();
@@ -129,7 +130,7 @@ const Setting: React.FC = () => {
             key: 'email',
             render: (item) => (
                 <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                    <div className="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center text-blue-600">
                         <Mail size={14} />
                     </div>
                     <span className="font-bold text-gray-900">{item.email}</span>
@@ -169,18 +170,9 @@ const Setting: React.FC = () => {
             align: 'right',
             render: (item) => (
                 <div className="flex items-center justify-end gap-2">
-                    <button
-                        onClick={() => handleEditInvite(item)}
-                        className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 rounded-xl transition-all"
-                    >
-                        <Edit2 size={16} />
-                    </button>
-                    <button
-                        onClick={() => handleDeleteInvite(item)}
-                        className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
-                    >
-                        <Trash2 size={16} />
-                    </button>
+                    <ActionButton variant='outline' Icon={Edit2} onClick={() => handleEditInvite(item)} />
+                    <ActionButton variant='danger' Icon={Trash2} onClick={() => handleDeleteInvite(item)} />
+                    
                 </div>
             )
         }
@@ -211,7 +203,7 @@ const Setting: React.FC = () => {
                 {activeTab === 'security' && (
                     <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
                         {/* Notifications Setting */}
-                        <Card className="flex items-center justify-between p-6 shadow-sm border border-gray-100 bg-white rounded-2xl">
+                        <Card className="flex items-center justify-between p-6  border border-gray-100 bg-white rounded-md">
                             <div className="flex flex-col gap-1.5 focus-within:ring-0">
                                 <h4 className="text-[16px] font-black text-gray-900 tracking-tight">Show Notifications</h4>
                                 <p className="text-[13px] text-gray-500 font-medium tracking-tight">Allow to receive push notifications for user activities and logs count</p>
@@ -221,7 +213,7 @@ const Setting: React.FC = () => {
                                 className={`w-[52px] h-[28px] rounded-full transition-all duration-300 relative shrink-0 ${notifications ? 'bg-[#00A043]' : 'bg-gray-200'} ${updatePreferences.isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
                                 disabled={updatePreferences.isPending}
                             >
-                                <div className={`absolute top-1 w-[20px] h-[20px] rounded-full bg-white transition-all duration-300 shadow-sm ${notifications ? 'left-[28px]' : 'left-1'}`} />
+                                <div className={`absolute top-1 w-[20px] h-[20px] rounded-full bg-white transition-all duration-300  ${notifications ? 'left-[28px]' : 'left-1'}`} />
                             </button>
                         </Card>
 
@@ -229,13 +221,13 @@ const Setting: React.FC = () => {
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl font-black text-gray-900 tracking-tight">Update Password</h2>
 
-                            <Card className="flex flex-col gap-8 p-8 shadow-sm border border-gray-100 bg-white rounded-2xl">
+                            <Card className="flex flex-col gap-8 p-8 border border-gray-100 bg-white rounded-md">
                                 <div className="flex flex-col gap-2 md:w-1/2">
                                     <Input
                                         label='Old Password'
                                         type="password"
                                         placeholder="Enter your old password"
-                                        className="h-14 rounded-xl"
+                                        className="h-14 rounded-md"
                                         value={oldPassword}
                                         onChange={(e) => setOldPassword(e.target.value)}
                                     />
@@ -247,7 +239,7 @@ const Setting: React.FC = () => {
                                             label='New Password'
                                             type="password"
                                             placeholder="Enter new password"
-                                            className="h-14 rounded-xl"
+                                            className="h-14 rounded-md"
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
                                         />
@@ -261,7 +253,7 @@ const Setting: React.FC = () => {
                                             label='Confirm New Password'
                                             type="password"
                                             placeholder="Confirm new password"
-                                            className="h-14 rounded-xl"
+                                            className="h-14 rounded-md"
                                             value={confirmNewPassword}
                                             onChange={(e) => setConfirmNewPassword(e.target.value)}
                                         />
@@ -272,7 +264,7 @@ const Setting: React.FC = () => {
                                     <Button
                                         variant="primary"
                                         size="lg"
-                                        className="rounded-xl px-10 h-14 font-black shadow-xl shadow-primary-100"
+                                        className="rounded-md px-10 h-14 font-black "
                                         onClick={handleSave}
                                         disabled={changePassword.isPending}
                                     >
@@ -293,7 +285,7 @@ const Setting: React.FC = () => {
                             <div className="flex items-center justify-between px-2">
                                 <div className="flex items-baseline gap-2">
                                     <h3 className="text-xl font-black text-gray-900 tracking-tight">Active Invitations</h3>
-                                    <span className="text-sm font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg">
+                                    <span className="text-sm font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">
                                         {invites.length} Total
                                     </span>
                                 </div>
@@ -302,7 +294,7 @@ const Setting: React.FC = () => {
                                         variant="primary"
                                         size="md"
                                         onClick={() => setIsInviteModalOpen(true)}
-                                        className="gap-2 rounded-xl w-full lg:min-w-[200px] h-12 font-black px-6 "
+                                        className="gap-2 rounded-md w-full lg:min-w-[200px] h-12 font-black px-6 "
                                     >
                                         <Plus size={18} />
                                         Invite Team Member

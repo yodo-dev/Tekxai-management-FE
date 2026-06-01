@@ -57,7 +57,7 @@ const Toast: React.FC<ToastProps> = ({
   return (
     <div
       className={classNames(
-        'flex items-start gap-3 p-4 rounded-lg shadow-lg border max-w-sm animate-slide-in',
+        'flex items-start gap-3 p-4 rounded-md shadow-lg border max-w-sm animate-slide-in',
         styles.bg,
         styles.border,
         darkMode && 'dark'

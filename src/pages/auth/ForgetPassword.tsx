@@ -52,7 +52,7 @@ const ForgetPassword: React.FC = () => {
                         onClick={() => navigate('/verify-otp', { state: { email: userEmail, id: userId } })}
                         fullWidth
                         size="lg"
-                        className="h-14 rounded-xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
+                        className="h-14 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
                     >
                         Click the Button to Verify OTP
                     </Button>
@@ -101,7 +101,7 @@ const ForgetPassword: React.FC = () => {
                                 disabled={forgetPasswordMutation.isPending}
                                 fullWidth
                                 size="lg"
-                                className="h-12 rounded-xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
+                                className="h-12 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
                             >
                                 {forgetPasswordMutation.isPending ? 'Sending OTP...' : 'Send OTP'}
                             </Button>

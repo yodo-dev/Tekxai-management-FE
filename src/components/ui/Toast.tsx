@@ -89,7 +89,7 @@ const ToastItem: React.FC<{ toast: Toast; onRemove: (id: string) => void }> = ({
   return (
     <div
       className={cn(
-        'flex flex-col gap-3 p-5 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] animate-slide-in transition-all bg-[#FCFDFE] border border-gray-100 border-l-[6px]',
+        'flex flex-col gap-3 p-5 rounded-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] animate-slide-in transition-all bg-[#FCFDFE] border border-gray-100 border-l-[6px]',
         leftBorderColors[toast.type]
       )}
     >

@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
                 return (
                     <Badge
                         variant="info"
-                        className={cn("rounded-lg px-3 py-1 text-[10px] font-bold tracking-wider border", style)}
+                        className={cn("rounded-md px-3 py-1 text-[10px] font-bold tracking-wider border", style)}
                     >
                         {item.status}
                     </Badge>
@@ -127,7 +127,7 @@ const Dashboard: React.FC = () => {
                 return (
                     <Badge
                         variant="info"
-                        className={cn("rounded-lg px-3 py-1 text-[10px] font-bold border", style)}
+                        className={cn("rounded-md px-3 py-1 text-[10px] font-bold border", style)}
                     >
                         {statusKey.replace('_', ' ')}
                     </Badge>
@@ -145,14 +145,14 @@ const Dashboard: React.FC = () => {
                 projectId={selectedProject}
                 routePrefix="/admin"
             />
-            <div className="p-3 rounded-[8px] bg-white">
+            <div className="p-3 rounded-md bg-white">
                 <div className='bg-[#F8F8F8] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-3 py-4'>
                     {statsLoading ? (
                         Array.from({ length: 4 }).map((_, i) => <StatSkeleton key={i} />)
                     ) : (
                         <>
                             <div className="flex items-center px-4 md:px-6 py-4 gap-4 overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-100 last:border-b-0 lg:last:border-r-0">
-                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl bg-blue-50 flex items-center justify-center text-primary-600 shrink-0">
+                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-md bg-blue-50 flex items-center justify-center text-primary-600 shrink-0">
                                     <CheckCircle size={28} />
                                 </div>
                                 <div className="flex flex-col min-w-0">
@@ -163,7 +163,7 @@ const Dashboard: React.FC = () => {
                             </div>
 
                             <div className="flex items-center px-4 md:px-6 py-4 gap-4 overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-100 last:border-b-0 lg:last:border-r-0">
-                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 shrink-0">
+                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-md bg-orange-50 flex items-center justify-center text-orange-500 shrink-0">
                                     <FileText size={28} />
                                 </div>
                                 <div className="flex flex-col min-w-0">
@@ -174,7 +174,7 @@ const Dashboard: React.FC = () => {
                             </div>
 
                             <div className="flex items-center px-4 md:px-6 py-4 gap-4 overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-100 last:border-b-0 lg:last:border-r-0">
-                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl bg-red-50 flex items-center justify-center text-red-500 shrink-0">
+                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-md bg-red-50 flex items-center justify-center text-red-500 shrink-0">
                                     <Play size={24} className="fill-red-500" />
                                 </div>
                                 <div className="flex flex-col min-w-0">
@@ -185,7 +185,7 @@ const Dashboard: React.FC = () => {
                             </div>
 
                             <div className="flex items-center px-4 md:px-6 py-4 gap-4 overflow-hidden last:border-b-0">
-                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 shrink-0">
+                                <div className="h-16 w-16 md:h-20 md:w-20 rounded-md bg-sky-50 flex items-center justify-center text-sky-600 shrink-0">
                                     <FileText size={28} />
                                 </div>
                                 <div className="flex flex-col min-w-0">
@@ -228,7 +228,7 @@ const Dashboard: React.FC = () => {
                             {activity?.map((act) => (
                                 <div
                                     key={act.id}
-                                    className="group cursor-pointer relative rounded-[1.25rem] border border-gray-100 overflow-hidden"
+                                    className="group cursor-pointer relative rounded-md border border-gray-100 overflow-hidden"
                                 >
                                     <img
                                         src={act.image}
@@ -241,7 +241,7 @@ const Dashboard: React.FC = () => {
                                         <Badge
                                             variant="info"
                                             className={cn(
-                                                "text-[10px] font-black px-2 py-0.5 rounded-lg border-none",
+                                                "text-[10px] font-black px-2 py-0.5 rounded-md border-none",
                                                 act.progress >= 90
                                                     ? "bg-[#005CDA] text-white"
                                                     : act.progress >= 50
@@ -277,7 +277,7 @@ const Dashboard: React.FC = () => {
             <Card isLoading={projectsLoading} className="flex flex-col gap-6 border-none">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-primary-50 text-primary-500 rounded-xl">
+                        <div className="p-2 bg-primary-50 text-primary-500 rounded-md">
                             <Briefcase size={20} />
                         </div>
                         <h2 className="text-lg font-black text-gray-900 tracking-tight">Projects Summary</h2>

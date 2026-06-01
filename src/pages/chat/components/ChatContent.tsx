@@ -33,7 +33,7 @@ const ChatContent: React.FC<ChatContentProps> = ({ activeChannel, messages, onSe
           {/* Mobile Menu Trigger */}
           <button
             onClick={toggleSidebar}
-            className="md:hidden p-1.5 hover:bg-gray-100 rounded-lg text-gray-500 mr-1"
+            className="md:hidden p-1.5 hover:bg-gray-100 rounded-md text-gray-500 mr-1"
           >
             <Menu size={20} />
           </button>
@@ -79,7 +79,7 @@ const ChatContent: React.FC<ChatContentProps> = ({ activeChannel, messages, onSe
               key={msg.id}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              className={`flex gap-3 group hover:bg-gray-50 transition-colors rounded-xl px-2 py-1 -mx-2 ${isGrouped ? 'mt-0.5' : 'mt-4'}`}
+              className={`flex gap-3 group hover:bg-gray-50 transition-colors rounded-md px-2 py-1 -mx-2 ${isGrouped ? 'mt-0.5' : 'mt-4'}`}
             >
               <div className="w-10 flex-shrink-0 flex justify-center">
                 {isGrouped ? (
@@ -109,8 +109,8 @@ const ChatContent: React.FC<ChatContentProps> = ({ activeChannel, messages, onSe
 
       {/* Message Input */}
       <div className="px-4 pb-4 pt-2 bg-white flex-shrink-0">
-        <div className="flex items-center gap-2 bg-gray-100 rounded-2xl px-4 py-2.5 border border-gray-200 focus-within:border-[#005CDA]/40 focus-within:ring-2 focus-within:ring-[#005CDA]/10 transition-all shadow-sm">
-          <button className="p-1 hover:bg-gray-200 rounded-lg transition-colors flex-shrink-0 grayscale hover:grayscale-0">
+        <div className="flex items-center gap-2 bg-gray-100 rounded-md px-4 py-2.5 border border-gray-200 focus-within:border-[#005CDA]/40 focus-within:ring-2 focus-within:ring-[#005CDA]/10 transition-all shadow-sm">
+          <button className="p-1 hover:bg-gray-200 rounded-md transition-colors flex-shrink-0 grayscale hover:grayscale-0">
             <Paperclip size={18} className="text-gray-400" />
           </button>
 
@@ -129,16 +129,16 @@ const ChatContent: React.FC<ChatContentProps> = ({ activeChannel, messages, onSe
           />
 
           <div className="flex items-center gap-1">
-            <button className="hidden sm:flex p-1 hover:bg-gray-200 rounded-lg transition-colors grayscale hover:grayscale-0">
+            <button className="hidden sm:flex p-1 hover:bg-gray-200 rounded-md transition-colors grayscale hover:grayscale-0">
               <Gift size={18} className="text-gray-400" />
             </button>
-            <button className="p-1 hover:bg-gray-200 rounded-lg transition-colors grayscale hover:grayscale-0">
+            <button className="p-1 hover:bg-gray-200 rounded-md transition-colors grayscale hover:grayscale-0">
               <Smile size={18} className="text-gray-400" />
             </button>
             <button
               onClick={handleSend}
               disabled={!inputValue.trim()}
-              className="ml-1 p-2 bg-gradient-to-b from-[#005CDA] to-[#001F4A] hover:opacity-90 text-white rounded-xl transition-all disabled:opacity-30 disabled:cursor-not-allowed active:scale-95 shadow-md shadow-primary-100"
+              className="ml-1 p-2 bg-gradient-to-b from-[#005CDA] to-[#001F4A] hover:opacity-90 text-white rounded-md transition-all disabled:opacity-30 disabled:cursor-not-allowed active:scale-95 shadow-md shadow-primary-100"
             >
               <Send size={14} />
             </button>

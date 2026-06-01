@@ -11,10 +11,9 @@ const App: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Simulate initial app initialization/loading
     const timer = setTimeout(() => {
       setIsInitialLoading(false);
-    }, 300); // Quick initialization
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);

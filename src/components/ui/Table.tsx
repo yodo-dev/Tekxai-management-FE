@@ -43,7 +43,7 @@ const Table = <T,>({
       {isLoading ? (
         <TableSkeleton columns={columns.length} rows={8} />
       ) : (
-        <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+        <div className="overflow-x-auto rounded-md border border-gray-200  bg-white">
           <table className="w-full text-sm text-left border-collapse">
             <thead>
               <tr className={cn("bg-[#E4F0FF]/40 border-b border-gray-100", headerClassName)}>
@@ -66,7 +66,7 @@ const Table = <T,>({
               {data.length === 0 ? (
                 <tr>
                   <td colSpan={columns.length} className="px-6 py-12 text-center">
-                    <span className="text-gray-500 italic font-medium">{emptyMessage}</span>
+                    <span className="text-gray-500  font-medium">{emptyMessage}</span>
                   </td>
                 </tr>
               ) : (
@@ -111,7 +111,7 @@ const Table = <T,>({
             <button
               onClick={() => pagination.onPageChange(pagination.currentPage - 1)}
               disabled={pagination.currentPage === 1}
-              className="p-2 border border-gray-200 rounded-lg text-gray-400 hover:text-primary-500 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="p-2 border border-gray-200 rounded-md text-gray-400 hover:text-primary-500 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <ChevronLeft size={18} />
             </button>
@@ -124,9 +124,9 @@ const Table = <T,>({
                   key={pageNum}
                   onClick={() => pagination.onPageChange(pageNum)}
                   className={cn(
-                    'w-9 h-9 flex items-center justify-center rounded-lg text-sm font-semibold transition-all',
+                    'w-9 h-9 flex items-center justify-center rounded-md text-sm font-semibold transition-all',
                     pagination.currentPage === pageNum
-                      ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white shadow-md shadow-primary-200'
+                      ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white '
                       : 'text-gray-500 hover:bg-gray-100'
                   )}
                 >
@@ -138,7 +138,7 @@ const Table = <T,>({
             <button
               onClick={() => pagination.onPageChange(pagination.currentPage + 1)}
               disabled={pagination.currentPage === pagination.totalPages}
-              className="p-2 border border-gray-200 rounded-lg text-gray-400 hover:text-primary-500 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="p-2 border border-gray-200 rounded-md text-gray-400 hover:text-primary-500 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <ChevronRight size={18} />
             </button>

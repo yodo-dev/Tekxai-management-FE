@@ -60,7 +60,7 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div className={cn('flex flex-col gap-1.5 w-full relative', containerClassName)} ref={wrapperRef}>
       {label && (
-        <label className="text-sm font-medium text-gray-700 ml-1">
+        <label className="text-base font-semibold text-gray-700 ml-1 lowercase first-letter:capitalize">
           {label}
         </label>
       )}
@@ -69,7 +69,7 @@ const Select: React.FC<SelectProps> = ({
         disabled={disabled}
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={cn(
-          'flex h-11 w-full items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm shadow-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all',
+          'flex h-11 w-full items-center justify-between !rounded-md border border-gray-200 bg-white px-4 py-2 text-sm hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all',
           disabled ? 'opacity-60 cursor-not-allowed bg-gray-50 border-gray-100' : 'cursor-pointer',
           error && 'border-red-500 focus:ring-red-500',
           className
@@ -87,7 +87,7 @@ const Select: React.FC<SelectProps> = ({
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-white border border-gray-100 rounded-xl shadow-xl z-[90] overflow-hidden animate-in fade-in duration-200">
+        <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-white border border-gray-100 rounded-md shadow-xl z-[90] overflow-hidden animate-in fade-in duration-200">
           <ul className="max-h-60 overflow-auto p-2 flex flex-col gap-1 no-scrollbar">
             {options.map((option) => {
               const isSelected = option.value === currentValue;
@@ -96,7 +96,7 @@ const Select: React.FC<SelectProps> = ({
                   key={option.value}
                   onClick={() => handleSelect(option.value)}
                   className={cn(
-                    'flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 font-bold text-sm select-none',
+                    'flex items-center justify-between px-3 py-2.5 rounded-md cursor-pointer transition-all duration-200 font-bold text-sm select-none',
                     isSelected 
                       ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white shadow-md'
                       : 'text-gray-600 hover:bg-gray-50'

@@ -7,6 +7,7 @@ import { setAccessToken } from '@/utils/tokenMemory';
 import { validateLoginForm } from '@/utils/validationSchemas';
 import { Button, FormInput } from '@/components';
 import { useToastContext } from '@/components/toast/ToastProvider';
+import Input from '../../components/ui/Input';
 
 const Login: React.FC = () => {
   const loginMutation = useLoginMutation();
@@ -55,32 +56,20 @@ const Login: React.FC = () => {
       >
         {({ values, handleChange, handleBlur, errors, touched }) => (
           <Form className="flex flex-col gap-6">
-            <FormInput
-              label="WORK EMAIL *"
-              name="email"
-              type="email"
+
+            <Input label="Work Email"
+              name="email" type="email"
               placeholder="Enter email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              labelClassName="text-[10px] font-black text-gray-400 tracking-widest uppercase mb-1"
-              error={touched.email && errors.email ? errors.email : undefined}
-              autoComplete="username"
-            />
+              value={values.email} onChange={handleChange}
+              onBlur={handleBlur} error={touched.email && errors.email ? errors.email : undefined} />
 
             <div className="flex flex-col gap-2">
-              <FormInput
-                label="PASSWORD *"
-                name="password"
-                type="password"
+              <Input label="Password"
+                name="password" type="password"
                 placeholder="Enter password"
-                value={values.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                labelClassName="text-[10px] font-black text-gray-400 tracking-widest uppercase mb-1"
-                error={touched.password && errors.password ? errors.password : undefined}
-                autoComplete="current-password"
-              />
+                value={values.password} onChange={handleChange}
+                onBlur={handleBlur} error={touched.password && errors.password ? errors.password : undefined} />
+
               <div className="flex justify-end">
                 <Link
                   to="/forget-password"
@@ -98,7 +87,7 @@ const Login: React.FC = () => {
                 fullWidth
                 size="lg"
                 loading={loginMutation.isPending}
-                className="h-12 rounded-xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
+                className="h-12 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
               >
                 {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
               </Button>

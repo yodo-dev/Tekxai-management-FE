@@ -15,7 +15,7 @@ const TableSkeleton: React.FC<TableSkeletonProps> = ({ rows = 6, columns = 5 }) 
   };
 
   return (
-    <div className="w-full bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+    <div className="w-full bg-white rounded-md border border-gray-200 overflow-hidden shadow-sm">
       <table className="w-full text-left border-collapse">
         <thead>
           <tr className="bg-gray-50/50 border-b border-gray-200">

@@ -11,6 +11,7 @@ import Badge from '@/components/ui/Badge';
 import { useNavigate } from 'react-router-dom';
 import ActionModal from '@/components/ui/ActionModal';
 import { useDebounce } from '@/hooks/useDebounce';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const UserManagement: React.FC = () => {
     const navigate = useNavigate();
@@ -106,7 +107,7 @@ const UserManagement: React.FC = () => {
             header: 'Role',
             key: 'role',
             render: (item) => (
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-xs font-black tracking-wider uppercase">
+                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-black tracking-wider uppercase">
                     {item.role?.name || item.role || 'GUEST'}
                 </span>
             )
@@ -130,18 +131,16 @@ const UserManagement: React.FC = () => {
             align: 'right',
             render: (item) => (
                 <div className="flex items-center justify-end gap-2">
-                    <button
+                    <ActionButton
+                        Icon={Edit2}
                         onClick={() => handleEditUser(item)}
-                        className="p-2 text-gray-400 hover:text-primary-500 hover:bg-primary-50 rounded-xl transition-all"
-                    >
-                        <Edit2 size={18} />
-                    </button>
-                    <button
+                        variant="outline"
+                    />
+                    <ActionButton
+                        Icon={Trash2}
                         onClick={() => handleDeleteUser(item)}
-                        className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
-                    >
-                        <Trash2 size={18} />
-                    </button>
+                        variant="danger"
+                    />
                 </div>
             )
         }
@@ -150,11 +149,11 @@ const UserManagement: React.FC = () => {
     return (
         <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-1">
-                <h1 className="text-2xl font-black text-gray-900 tracking-tight">User Management – Control Access</h1>
+                <h1 className="text-2xl font-black text-gray-900 tracking-tight">User Management Control Access</h1>
                 <p className="text-sm text-gray-500 font-medium">Manage platform users, assign roles, and monitor status.</p>
             </div>
 
-            <Card className="flex flex-col gap-8 shadow-2xl border-none p-8 rounded-[2rem]">
+            <Card className="flex flex-col gap-8 shadow-2xl border-none p-8 rounded-md">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-4 w-full lg:w-auto">
                         <Input
@@ -163,7 +162,7 @@ const UserManagement: React.FC = () => {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             containerClassName="w-full lg:min-w-[400px]"
-                            className="h-12 rounded-xl"
+                            className="h-12 rounded-md"
                         />
                     </div>
 
@@ -171,7 +170,7 @@ const UserManagement: React.FC = () => {
                         variant="primary"
                         size="md"
                         onClick={handleAddUser}
-                        className="gap-2 rounded-xl w-full lg:w-auto h-12 font-black px-8 shadow-lg shadow-primary-100"
+                        className="gap-2 rounded-md w-full lg:w-auto h-12 font-black px-8 shadow-lg shadow-primary-100"
                     >
                         <Plus size={20} />
                         Add New Member

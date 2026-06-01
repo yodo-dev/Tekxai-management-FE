@@ -34,7 +34,7 @@ const PasswordValidator: React.FC<PasswordValidatorProps> = ({ password, classNa
   }
 
   return (
-    <div className={cn("flex flex-col gap-4 p-4 bg-gray-50/50 rounded-2xl border border-gray-100", className)}>
+    <div className={cn("flex flex-col gap-4 p-4 bg-gray-50/50 rounded-md border border-gray-100", className)}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
           <div 

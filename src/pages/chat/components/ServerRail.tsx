@@ -17,7 +17,7 @@ const ServerIcon: React.FC<{ server: Server; active: boolean; onClick: () => voi
 
     <button
       onClick={onClick}
-      className={`ml-3 w-12 h-12 rounded-${active ? '2xl' : 'full'} bg-gradient-to-b ${server.color} flex items-center justify-center text-white font-black text-sm shadow-md transition-all duration-300 group-hover:rounded-2xl hover:shadow-lg active:scale-95 relative`}
+      className={`ml-3 w-12 h-12 rounded-${active ? '2xl' : 'full'} bg-gradient-to-b ${server.color} flex items-center justify-center text-white font-black text-sm shadow-md transition-all duration-300 group-hover:rounded-md hover:shadow-lg active:scale-95 relative`}
       title={server.name}
     >
       {server.abbreviation}

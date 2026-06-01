@@ -68,7 +68,7 @@ const EmployeeSetting: React.FC = () => {
 
             <div className="flex flex-col gap-4">
                 {/* Notifications Setting */}
-                <Card className="flex items-center justify-between p-6 shadow-sm border border-gray-100 bg-white rounded-xl">
+                <Card className="flex items-center justify-between p-6 shadow-sm border border-gray-100 bg-white rounded-md">
                     <div className="flex flex-col gap-1.5">
                         <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">Show Notifications</h4>
                         <p className="text-[13px] text-gray-500 font-medium tracking-tight">Allow to receive push notifications for user activities and logs count</p>
@@ -87,7 +87,7 @@ const EmployeeSetting: React.FC = () => {
                 <div className="mt-4 flex flex-col gap-4">
                     <h2 className="text-2xl font-black text-gray-900 tracking-tight">Update Password</h2>
 
-                    <Card className="flex flex-col gap-6 p-6 shadow-sm border border-gray-100 bg-white rounded-xl">
+                    <Card className="flex flex-col gap-6 p-6 shadow-sm border border-gray-100 bg-white rounded-md">
                         <div className="flex flex-col gap-1 md:w-1/2">
                             <span className="text-[14px] font-black text-gray-900 tracking-tight">Old Password</span>
                             <Input
@@ -121,7 +121,7 @@ const EmployeeSetting: React.FC = () => {
                         </div>
 
                         <div className="flex justify-end mt-2">
-                            <Button variant="primary" size="md" className="rounded-xl px-8 font-black shadow-lg shadow-primary-100" onClick={handleSave} disabled={changePassword.isPending}>
+                            <Button variant="primary" size="md" className="rounded-md px-8 font-black shadow-lg shadow-primary-100" onClick={handleSave} disabled={changePassword.isPending}>
                                 {changePassword.isPending ? 'Updating...' : 'Update Password'}
                             </Button>
                         </div>

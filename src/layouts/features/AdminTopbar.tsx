@@ -60,7 +60,7 @@ const AdminTopbar: React.FC<AdminTopbarProps> = memo(({ onMenu, routePrefix = '/
         <div className="fixed top-0 left-0 lg:left-sidebar gap-3 right-0 h-[5.5rem] bg-white backdrop-blur-md border-b border-gray-100 flex items-center justify-between px-6 md:px-5 z-[100] transition-all duration-300">
 
             <div className="flex items-center gap-4">
-                <button className="lg:hidden p-2 hover:bg-gray-100 rounded-xl transition-colors" onClick={onMenu}>
+                <button className="lg:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" onClick={onMenu}>
                     <Menu size={20} className="text-gray-600" />
                 </button>
                 <div className="flex flex-col gap-1">
@@ -84,7 +84,7 @@ const AdminTopbar: React.FC<AdminTopbarProps> = memo(({ onMenu, routePrefix = '/
                 <button
                     ref={notifBtnRef}
                     onClick={() => setIsNotifOpen(!isNotifOpen)}
-                    className="relative p-2.5 bg-gray-50 text-gray-500 group hover:text-primary-500 hover:bg-primary-50 rounded-2xl border border-gray-100 transition-all"
+                    className="relative p-2.5 bg-gray-50 text-gray-500 group hover:text-primary-500 hover:bg-primary-50 rounded-md border border-gray-100 transition-all"
                 >
                     <Bell
                         size={20}
@@ -122,13 +122,13 @@ const AdminTopbar: React.FC<AdminTopbarProps> = memo(({ onMenu, routePrefix = '/
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.92, y: -8 }}
                                 transition={{ duration: 0.18, ease: 'easeOut' }}
-                                className="absolute top-[calc(100%+12px)] right-0 w-52 bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100 overflow-hidden z-50"
+                                className="absolute top-[calc(100%+12px)] right-0 w-52 bg-white rounded-md shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100 overflow-hidden z-50"
                             >
                                 {/* User Info */}
                                 <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
                                     <img
                                         src={user?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent((user?.first_name || 'U') + '+' + (user?.last_name || ''))}&background=005CDA&color=fff&size=128`}
-                                        className="w-10 h-10 rounded-xl object-cover shadow-sm"
+                                        className="w-10 h-10 rounded-md object-cover shadow-sm"
                                     />
                                     <div className="flex flex-col overflow-hidden">
                                         <span className="font-black text-gray-900 text-[14px] truncate">

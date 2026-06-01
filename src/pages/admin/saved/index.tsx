@@ -10,6 +10,7 @@ import Input from '@/components/ui/Input';
 import { cn } from '@/utils/cn';
 import ActionModal from '@/components/ui/ActionModal';
 import { useToastContext } from '@/components/toast/ToastProvider';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const SavedProject: React.FC = () => {
     const { data: projects, isLoading } = useGetSavedProjects();
@@ -80,7 +81,7 @@ const SavedProject: React.FC = () => {
                         </div>
                     )}
                     {(!item.members || item.members.length === 0) && (
-                        <span className="text-[10px] text-gray-400 font-medium italic">No members</span>
+                        <span className="text-[10px] text-gray-400 font-medium ">No members</span>
                     )}
                 </div>
             )
@@ -113,7 +114,7 @@ const SavedProject: React.FC = () => {
                 };
                 const style = statusStyles[item.status] || 'bg-gray-50 text-gray-500 border-gray-100';
                 return (
-                    <Badge variant="info" className={cn("rounded-lg px-3 py-1 text-[10px] font-black tracking-tight border", style)}>
+                    <Badge variant="info" className={cn("rounded-md px-3 py-1 text-[10px] font-black tracking-tight border", style)}>
                         {item.status || 'PENDING'}
                     </Badge>
                 );
@@ -124,9 +125,14 @@ const SavedProject: React.FC = () => {
             header: '',
             key: 'actions',
             render: (item) => (
-                <button onClick={() => setProjectToUnsave(item)} className="p-2 hover:bg-yellow-50 rounded-lg text-gray-400 transition-colors">
-                    <Star size={18} className="text-yellow-400 fill-yellow-400" />
-                </button>
+                <ActionButton
+                    variant='warning'
+                    Icon={Star}
+
+                    iconColor='text-yellow-400 fill-yellow-400'
+                    onClick={() => setProjectToUnsave(item)}
+                />
+
             )
         }
     ];
@@ -152,7 +158,7 @@ const SavedProject: React.FC = () => {
                 <p className="text-sm text-gray-500 font-medium tracking-tight">Quickly access projects you've starred or bookmarked for easy reference.</p>
             </div>
 
-            <Card className="flex flex-col gap-6 shadow-2xl border-none p-8 rounded-[2rem]">
+            <Card className="flex flex-col gap-6 shadow-2xl border-none p-8 rounded-md">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                         <Star size={20} className="text-yellow-400 fill-yellow-400" />
@@ -164,7 +170,7 @@ const SavedProject: React.FC = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         containerClassName="w-full max-w-[320px]"
-                        className="h-11 rounded-xl"
+                        className="h-11 rounded-md"
                     />
                 </div>
 

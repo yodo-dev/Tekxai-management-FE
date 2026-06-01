@@ -71,7 +71,7 @@ const CreateMilestoneModal: React.FC<CreateMilestoneModalProps> = ({ isOpen, onC
           onChange={handleInputChange}
           error={errors.title}
           placeholder="e.g. Backend API Development"
-          className="h-12 rounded-xl"
+          className="h-12 rounded-md"
         />
 
         <DatePicker
@@ -88,14 +88,14 @@ const CreateMilestoneModal: React.FC<CreateMilestoneModalProps> = ({ isOpen, onC
           value={formData.description}
           onChange={handleInputChange}
           placeholder="Add some details about this milestone..."
-          className="sm:min-h-[120px]  rounded-xl"
+          className="sm:min-h-[120px]  rounded-md"
         />
 
         <div className="flex sm:flex-row w-full flex-col items-center gap-3 mt-2">
           <Button
             type="button"
             variant="outline"
-            className="sm:flex-1 w-full h-12 rounded-xl font-bold"
+            className="sm:flex-1 w-full h-12 rounded-md font-bold"
             onClick={onClose}
           >
             Cancel
@@ -103,7 +103,7 @@ const CreateMilestoneModal: React.FC<CreateMilestoneModalProps> = ({ isOpen, onC
           <Button
             type="submit"
             variant="primary"
-            className="flex-1 h-12 w-full rounded-xl font-bold shadow-lg shadow-primary-100"
+            className="flex-1 h-12 w-full rounded-md font-bold shadow-lg shadow-primary-100"
             leftIcon={Plus}
           >
             Create Milestone

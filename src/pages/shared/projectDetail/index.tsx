@@ -94,7 +94,7 @@ const ProjectDetailPage: React.FC = () => {
         <div className="flex items-center mb-4">
           <button
             onClick={() => navigate(backPath as any)}
-            className="flex items-center gap-2 text-black font-black text-[14px] hover:bg-gray-50 px-4 py-2 rounded-xl transition-colors active:scale-95"
+            className="flex items-center gap-2 text-black font-black text-[14px] hover:bg-gray-50 px-4 py-2 rounded-md transition-colors active:scale-95"
           >
             <ArrowLeft size={18} strokeWidth={2.5} />
             Back To Project
@@ -114,7 +114,7 @@ const ProjectDetailPage: React.FC = () => {
               <span className="font-bold text-gray-700">Shareable Link:</span>
               <div className='border border-[#2525251A] rounded-[8px] p-2 flex items-center lg:min-w-[319px] justify-between'>
                 <span className="text-gray-400 ">https://tekxai.services</span>
-                <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-[#005CDA]">
+                <button className="p-2 hover:bg-gray-100 rounded-md transition-colors text-[#005CDA]">
                   <Copy size={16} strokeWidth={2.5} />
                 </button>
               </div>
@@ -142,7 +142,7 @@ const ProjectDetailPage: React.FC = () => {
             <div className="flex flex-col gap-1.5">
               <span className="text-[11px] font-black text-gray-500 uppercase tracking-wider">Due Date</span>
               <div className="flex items-center gap-2">
-                <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm font-bold text-gray-700 hover:border-gray-300 transition-colors shadow-sm">
+                <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-md px-4 py-2 text-sm font-bold text-gray-700 hover:border-gray-300 transition-colors shadow-sm">
                   {project?.end_date ? new Date(project.end_date).toLocaleDateString() : 'N/A'}
                   {project?.end_date && new Date(project.end_date) < new Date() && (
                     <Badge variant="warning" className="bg-[#F5CD47] text-[#181D27] border-none p-1 ">Overdue</Badge>
@@ -155,7 +155,7 @@ const ProjectDetailPage: React.FC = () => {
             {/* Reminder */}
             <div className="flex flex-col gap-1.5">
               <span className="text-[11px] font-black text-gray-500 uppercase tracking-wider">Reminder</span>
-              <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm font-bold text-gray-700 hover:border-gray-300 transition-colors shadow-sm">
+              <button className="flex items-center gap-2 bg-white border border-gray-200 rounded-md px-4 py-2 text-sm font-bold text-gray-700 hover:border-gray-300 transition-colors shadow-sm">
                 <MessageSquare size={14} className="text-gray-400" />
                 21 Mar, 19:00
                 <ChevronDown size={14} />
@@ -165,7 +165,7 @@ const ProjectDetailPage: React.FC = () => {
             {/* Label */}
             <div className="flex flex-col gap-1.5">
               <span className="text-[11px] font-black text-gray-500 uppercase tracking-wider">Label:</span>
-              <button className="flex items-center gap-2 bg-[#059900] text-white font-black text-sm rounded-xl px-5 py-2  transition-colors shadow-[0_4px_12px_rgba(0,163,108,0.3)]">
+              <button className="flex items-center gap-2 bg-[#059900] text-white font-black text-sm rounded-md px-5 py-2  transition-colors shadow-[0_4px_12px_rgba(0,163,108,0.3)]">
                 Completed
                 <ChevronDown size={14} />
               </button>
@@ -179,14 +179,14 @@ const ProjectDetailPage: React.FC = () => {
               <span className="font-black text-gray-900">Description</span>
             </div>
           </div>
-          <div className="bg-[#FAFBFF] border border-gray-100 rounded-2xl p-5 text-[14px] text-gray-600 font-medium leading-relaxed">
+          <div className="bg-[#FAFBFF] border border-gray-100 rounded-md p-5 text-[14px] text-gray-600 font-medium leading-relaxed">
             {project?.description || 'No description provided for this project.'}
           </div>
         </div>
 
         {/* Add button */}
         <div className="flex justify-end">
-          <Button leftIcon={Plus} className="flex items-center gap-2 bg-[#005CDA] hover:bg-[#0048B8] text-white font-black text-sm px-6 py-3 rounded-xl shadow-[0_4px_14px_rgba(0,92,218,0.3)] transition-all active:scale-95">
+          <Button leftIcon={Plus} className="flex items-center gap-2 bg-[#005CDA] hover:bg-[#0048B8] text-white font-black text-sm px-6 py-3 rounded-md shadow-[0_4px_14px_rgba(0,92,218,0.3)] transition-all active:scale-95">
             Add
           </Button>
         </div>
@@ -195,7 +195,7 @@ const ProjectDetailPage: React.FC = () => {
       {/* Milestones Table */}
       <div className="flex flex-col gap-4">
         {milestones.map((milestone) => (
-          <div key={milestone.id} className="bg-white rounded-[2rem] border border-gray-100 shadow-sm overflow-hidden">
+          <div key={milestone.id} className="bg-white rounded-md border border-gray-100 shadow-sm overflow-hidden">
             {/* Main Table Header */}
             {/* Main Table Container */}
             <div className="overflow-x-auto custom-scrollbar">
@@ -244,14 +244,14 @@ const ProjectDetailPage: React.FC = () => {
                       </div>
                     </td>
                     <td className={tableCellClass}>
-                      <Badge variant="info" className={cn('rounded-lg px-3 py-1 text-[10px] font-black border', statusStyles[milestone.status] || '')}>
+                      <Badge variant="info" className={cn('rounded-md px-3 py-1 text-[10px] font-black border', statusStyles[milestone.status] || '')}>
                         {milestone.status}
                       </Badge>
                     </td>
                     <td className={tableCellClass}>{milestone.dueDate}</td>
                     <td className={tableCellClass}>{milestone.deadline}</td>
                     <td className={tableCellClass}>
-                      <button className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 transition-colors">
+                      <button className="p-1.5 hover:bg-gray-100 rounded-md text-gray-400 transition-colors">
                         <MoreVertical size={16} />
                       </button>
                     </td>
@@ -309,14 +309,14 @@ const ProjectDetailPage: React.FC = () => {
                                   </div>
                                 </td>
                                 <td className={tableCellClass}>
-                                  <Badge variant="info" className={cn('rounded-lg px-3 py-1 text-[10px] font-black border', statusStyles[sub.status] || '')}>
+                                  <Badge variant="info" className={cn('rounded-md px-3 py-1 text-[10px] font-black border', statusStyles[sub.status] || '')}>
                                     {sub.status}
                                   </Badge>
                                 </td>
                                 <td className={tableCellClass}>{sub.dueDate}</td>
                                 <td className={tableCellClass}>{sub.deadline}</td>
                                 <td className={tableCellClass}>
-                                  <button className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 transition-colors">
+                                  <button className="p-1.5 hover:bg-gray-100 rounded-md text-gray-400 transition-colors">
                                     <MoreVertical size={16} />
                                   </button>
                                 </td>
@@ -329,7 +329,7 @@ const ProjectDetailPage: React.FC = () => {
 
                     {/* Add Item Row */}
                     <div className="px-4 py-3">
-                      <button className="flex items-center gap-2 text-[#005CDA] font-black text-[13px] hover:bg-blue-50 px-3 py-1.5 rounded-lg transition-colors">
+                      <button className="flex items-center gap-2 text-[#005CDA] font-black text-[13px] hover:bg-blue-50 px-3 py-1.5 rounded-md transition-colors">
                         <Plus size={14} strokeWidth={3} /> Add Item
                       </button>
                     </div>

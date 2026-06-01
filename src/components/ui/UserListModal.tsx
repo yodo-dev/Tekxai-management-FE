@@ -50,7 +50,7 @@ const UserListModal: React.FC<UserListModalProps> = ({ isOpen, onClose, onApply 
             placeholder="Search users by name or email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-12 h-12 rounded-xl"
+            className="pl-12 h-12 rounded-md"
           />
         </div>
 
@@ -68,7 +68,7 @@ const UserListModal: React.FC<UserListModalProps> = ({ isOpen, onClose, onApply 
               <div
                 key={user.id}
                 onClick={() => handleSelectUser(user)}
-                className={`flex items-center justify-between p-4 rounded-2xl border transition-all cursor-pointer ${selectedUserId === user.id
+                className={`flex items-center justify-between p-4 rounded-md border transition-all cursor-pointer ${selectedUserId === user.id
                   ? 'border-primary-500 bg-primary-50/50 shadow-sm'
                   : 'border-gray-100 hover:border-gray-200 hover:bg-gray-50'
                   }`}
@@ -102,7 +102,7 @@ const UserListModal: React.FC<UserListModalProps> = ({ isOpen, onClose, onApply 
           <Button
             variant="outline"
             fullWidth
-            className="h-12 rounded-xl font-bold"
+            className="h-12 rounded-md font-bold"
             onClick={onClose}
           >
             Cancel
@@ -111,7 +111,7 @@ const UserListModal: React.FC<UserListModalProps> = ({ isOpen, onClose, onApply 
             variant="primary"
             fullWidth
             disabled={!selectedUserId}
-            className="h-12 rounded-xl font-black shadow-lg shadow-primary-100"
+            className="h-12 rounded-md font-black shadow-lg shadow-primary-100"
             onClick={handleApply}
           >
             Apply Selection

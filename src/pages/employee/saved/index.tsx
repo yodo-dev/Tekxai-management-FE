@@ -30,7 +30,7 @@ const EmployeeSaved: React.FC = () => {
             header: 'Status',
             key: 'status',
             render: (item) => (
-                <Badge variant="info" className="rounded-lg px-3 py-1 text-[10px] font-black uppercase tracking-tight">
+                <Badge variant="info" className="rounded-md px-3 py-1 text-[10px] font-black uppercase tracking-tight">
                     {item.status}
                 </Badge>
             )
@@ -41,10 +41,10 @@ const EmployeeSaved: React.FC = () => {
             key: 'actions',
             render: () => (
                 <div className="flex items-center gap-2">
-                    <button className="p-2 text-yellow-400 hover:bg-yellow-50 rounded-lg transition-all">
+                    <button className="p-2 text-yellow-400 hover:bg-yellow-50 rounded-md transition-all">
                         <Star size={18} fill="currentColor" />
                     </button>
-                    <button className="p-2 hover:bg-gray-100 rounded-lg text-gray-400 transition-colors">
+                    <button className="p-2 hover:bg-gray-100 rounded-md text-gray-400 transition-colors">
                         <MoreHorizontal size={18} />
                     </button>
                 </div>

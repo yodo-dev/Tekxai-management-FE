@@ -197,7 +197,7 @@ const Register: React.FC = () => {
                 fullWidth
                 loading={registerMutation.isPending}
                 disabled={registerMutation.isPending}
-                className="h-14 rounded-xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
+                className="h-14 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-bold"
               >
                 {registerMutation.isPending ? 'Creating account...' : 'Sign Up'}
               </Button>

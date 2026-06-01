@@ -2,7 +2,7 @@ import React from 'react';
 import { cn, classVariants, type VariantProps } from '@/utils/cn';
 
 const badgeVariants = classVariants(
-  'inline-flex items-center font-bold rounded-[4px] border-none',
+  'inline-flex items-center font-bold rounded-[2px] border-none',
   {
     variants: {
       variant: {
@@ -38,7 +38,7 @@ const Badge: React.FC<BadgeProps> = ({
   className
 }) => {
   return (
-    <h4 className={cn(badgeVariants({ variant, size }), className)}>
+    <h4 className={cn(`${badgeVariants({ variant, size })} ${className} px-4 py-1.5 text-[13px] lowercase  tracking-tight`)}>
       {children}
     </h4>
   );

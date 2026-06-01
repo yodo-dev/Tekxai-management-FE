@@ -198,7 +198,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
             <Button
               variant="primary"
               size="sm"
-              className="rounded-lg h-9 text-[12px] font-bold border-gray-200 
+              className="rounded-md h-9 text-[12px] font-bold border-gray-200 
                hover:bg-gray-50 flex items-center gap-2"
               onClick={() => setIsUserListOpen(true)}
             >
@@ -216,7 +216,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={errors.email}
-              className="h-12 rounded-xl"
+              className="h-12 rounded-md"
             />
           </div>
 
@@ -230,7 +230,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
               onChange={handleDepartmentChange}
               error={errors.department}
               placeholder="Select Department"
-              className="h-12 !rounded-xl"
+              className="h-12 "
               containerClassName="w-full"
             />
 
@@ -243,7 +243,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
               error={errors.team}
               placeholder={department ? "Select Team" : "Select Department First"}
               disabled={!department}
-              className="h-12 !rounded-xl"
+              className="h-12 "
               containerClassName="w-full"
             />
 
@@ -256,7 +256,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
               error={errors.designation}
               placeholder={team ? "Select Designation" : "Select Team First"}
               disabled={!team}
-              className="h-12 !rounded-xl"
+              className="h-12 "
               containerClassName="w-full"
             />
           </div>
@@ -267,7 +267,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
               variant="primary"
               fullWidth
               loading={isPending}
-              className="h-12 rounded-xl font-black text-base shadow-xl shadow-primary-100"
+              className="h-12 rounded-md font-black text-base shadow-xl shadow-primary-100"
               onClick={handleSendInvite}
             >
               {isEdit ? "Update Invite" : "Send Invites"}
@@ -275,7 +275,7 @@ const InviteMemberModal: React.FC<InviteMemberModalProps> = ({ isOpen, onClose, 
             <Button
               variant="outline"
               fullWidth
-              className="h-12 rounded-xl "
+              className="h-12 rounded-md "
               onClick={onClose}
             >
               Cancel

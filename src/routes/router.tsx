@@ -99,7 +99,6 @@ const routes: RouteObject[] = [
       { path: '/employee/*', element: <NotFound /> }
     ]
   },
-  // ── Standalone Chat (no layout, auth-protected for both roles) ─────────
   {
     element: <ProtectedRoute roles={['ADMIN', 'EMPLLOYEE']} />,
     children: [

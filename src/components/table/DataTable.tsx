@@ -67,7 +67,7 @@ const DataTable = <T extends Record<string, any> = any>({
   );
 
   return (
-    <div className={classNames('bg-white dark:bg-gray-800 rounded-lg ', className)}>
+    <div className={classNames('bg-white dark:bg-gray-800 rounded-md ', className)}>
       <DataTableLib
         columns={columns}
         data={data}

@@ -86,7 +86,7 @@ const UserSelectDropdown: React.FC<{
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute left-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 overflow-hidden p-2"
+            className="absolute left-0 mt-2 w-64 bg-white border border-gray-100 rounded-md shadow-xl z-50 overflow-hidden p-2"
           >
             <div className="relative mb-2">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={14} />
@@ -95,7 +95,7 @@ const UserSelectDropdown: React.FC<{
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search..."
-                className="w-full bg-gray-50 border-none rounded-xl pl-9 pr-4 py-2 text-xs font-medium focus:ring-1 focus:ring-primary-100"
+                className="w-full bg-gray-50 border-none rounded-md pl-9 pr-4 py-2 text-xs font-medium focus:ring-1 focus:ring-primary-100"
               />
             </div>
             <div className="max-h-48 overflow-y-auto no-scrollbar flex flex-col gap-1">
@@ -112,7 +112,7 @@ const UserSelectDropdown: React.FC<{
                       setSearchTerm('');
                       setShowDropdown(false);
                     }}
-                    className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors text-left"
+                    className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-md transition-colors text-left"
                   >
                     <img
                       src={u.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(u.first_name)}&background=random`}
@@ -215,7 +215,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
     }
   };
 
-  const inputClass = 'w-full border border-gray-200 rounded-xl px-4 py-3 text-[14px] font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all bg-white';
+  const inputClass = 'w-full border border-gray-200 rounded-md px-4 py-3 text-[14px] font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all bg-white';
 
   return (
     <AnimatePresence>
@@ -234,7 +234,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-            className="fixed inset-y-0 right-0 w-full md:w-[540px] bg-[#F7F8FC] shadow-2xl z-[141] flex flex-col overflow-hidden md:rounded-l-[3rem]"
+            className="fixed inset-y-0 right-0 w-full md:w-[540px] bg-[#F7F8FC] shadow-2xl z-[141] flex flex-col overflow-hidden md:rounded-l-md"
           >
             <div className="px-8 pt-8 pb-2 shrink-0 flex items-center justify-between">
               <button
@@ -257,7 +257,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
                   onChange={(e) => setProjectName(e.target.value)}
                   error={errors.projectName}
                   placeholder="Enter project name"
-                  className="h-12 rounded-xl"
+                  className="h-12 rounded-md"
                 />
 
                 <Textarea
@@ -310,7 +310,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
                     {errors.owner && <span className="text-red-500 ml-2 font-medium text-xs">({errors.owner})</span>}
                   </label>
                   <div className={cn(
-                    "flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-2xl border border-dashed transition-all bg-gray-50/50",
+                    "flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-md border border-dashed transition-all bg-gray-50/50",
                     errors.owner ? "border-red-500 bg-red-50/10" : "border-gray-200"
                   )}>
                     <AnimatePresence>
@@ -329,7 +329,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
                 {/* Team Leader */}
                 <div className="flex flex-col gap-3">
                   <label className="text-[13px] font-bold text-gray-600 ml-1">Team Leaders</label>
-                  <div className="flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-2xl border border-dashed border-gray-200 bg-gray-50/50">
+                  <div className="flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-md border border-dashed border-gray-200 bg-gray-50/50">
                     <AnimatePresence>
                       {teamLeaders.map((m) => (
                         <AvatarChip key={m.id} member={m} onRemove={() => setTeamLeaders(prev => prev.filter(p => p.id !== m.id))} />
@@ -346,7 +346,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
                 {/* Team Members */}
                 <div className="flex flex-col gap-3">
                   <label className="text-[13px] font-bold text-gray-600 ml-1">Team Members</label>
-                  <div className="flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-2xl border border-dashed border-gray-200 bg-gray-50/50">
+                  <div className="flex flex-wrap gap-2 items-center min-h-[44px] p-3 rounded-md border border-dashed border-gray-200 bg-gray-50/50">
                     <AnimatePresence>
                       {teamMembers.map((m) => (
                         <AvatarChip key={m.id} member={m} onRemove={() => setTeamMembers(prev => prev.filter(p => p.id !== m.id))} />
@@ -366,7 +366,7 @@ const CreateProjectSlideOver: React.FC<CreateProjectSlideOverProps> = ({ isOpen,
 
             <div className="px-8 py-6 bg-white border-t border-gray-100 shrink-0">
               <Button
-                className="w-full bg-[#005CDA] hover:bg-[#0048B8] active:scale-[0.98] text-white font-black text-[15px] py-4 rounded-2xl transition-all shadow-lg shadow-primary-200 h-14"
+                className="w-full bg-[#005CDA] hover:bg-[#0048B8] active:scale-[0.98] text-white font-black text-[15px] py-4 rounded-md transition-all shadow-lg shadow-primary-200 h-14"
                 onClick={handleSubmit}
                 loading={createMutation.isPending || updateMutation.isPending}
               >

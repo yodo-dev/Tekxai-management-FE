@@ -31,14 +31,14 @@ const Tabs: React.FC<TabsProps> = ({
   );
 
   const containerStyles = {
-    pills: 'bg-white p-1 rounded-2xl border border-gray-100/50 flex items-center gap-1 overflow-x-auto no-scrollbar max-w-max',
+    pills: 'bg-white p-1 rounded-md border border-gray-100/50 flex items-center gap-1 overflow-x-auto no-scrollbar max-w-max',
     underline: 'flex items-center gap-8 border-b border-gray-200 overflow-x-auto no-scrollbar max-w-full',
   };
 
   const buttonStyles = {
     pills: (isActive: boolean) =>
       cn(
-        'whitespace-nowrap rounded-xl transition-all duration-300 flex items-center gap-2 font-black tracking-tight',
+        'whitespace-nowrap rounded-md transition-all duration-300 flex items-center gap-2 font-black tracking-tight',
         size === 'sm' ? 'px-4 py-1.5 text-xs' : 'px-6 py-2.5 text-sm',
         isActive
           ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white shadow-lg shadow-primary-200 scale-[1.02]'

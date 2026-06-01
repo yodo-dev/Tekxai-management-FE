@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { cn } from '@/utils/cn';
 import { LucideIcon } from 'lucide-react';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'dark' | 'outline' | 'ghost' | 'link' | 'transparent';
+export type ButtonVariant = 'primary' | 'secondary' | 'dark' | 'outline' | 'ghost' | 'link' | 'transparent' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonAnimation = 'sweep' | 'sweep-black' | 'none';
 
@@ -54,6 +54,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   outline: 'bg-transparent text-gray-900 border-2 border-gray-300 hover:bg-gray-50',
   ghost: 'bg-transparent text-gray-700 hover:bg-gray-100',
   link: 'bg-transparent text-primary-500 hover:text-primary-600 underline-offset-4 hover:underline',
+  danger: 'bg-red-500 text-white hover:bg-red-600',
   transparent: 'bg-transparent text-primary-600 font-medium !p-0'
 };
 
@@ -109,8 +110,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const baseClasses =
-      'font-semibold text-sm font-heading transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group active:scale-[0.98] hover:-translate-y-[1px] hover:shadow-lg shadow-sm';
-    const roundedClass = rounded ? 'rounded-full' : 'rounded-lg';
+      'font-semibold text-sm font-heading transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group ';
+    const roundedClass = rounded ? 'rounded-full' : 'rounded-md';
     const widthClass = fullWidth ? 'w-full' : '';
 
     const classes = cn(

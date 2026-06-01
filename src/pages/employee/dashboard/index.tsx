@@ -109,7 +109,7 @@ const EmployeeDashboard: React.FC = () => {
                 return (
                     <Badge
                         variant="info"
-                        className={cn("rounded-lg px-2 py-0.5 text-[10px] font-bold border", style)}
+                        className={cn("rounded-md px-2 py-0.5 text-[10px] font-bold border", style)}
                     >
                         {item.status}
                     </Badge>
@@ -175,7 +175,7 @@ const EmployeeDashboard: React.FC = () => {
                 return (
                     <Badge
                         variant="info"
-                        className={cn("rounded-lg px-2 py-0.5 text-[10px] font-bold border", style)}
+                        className={cn("rounded-md px-2 py-0.5 text-[10px] font-bold border", style)}
                     >
                         {item.status}
                     </Badge>
@@ -195,7 +195,7 @@ const EmployeeDashboard: React.FC = () => {
             />
 
             {/* Top Stats Section */}
-            <div className="flex flex-col lg:flex-row gap-6 items-start p-3 rounded-[8px] bg-white">
+            <div className="flex flex-col lg:flex-row gap-6 items-start p-3 rounded-md bg-white">
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-3 flex-1 w-full bg-[#F8F8F8] lg:w-auto">
                     {statsLoading ? (
                         Array.from({ length: 3 }).map((_, i) => <StatSkeleton key={i} />)
@@ -257,7 +257,7 @@ const EmployeeDashboard: React.FC = () => {
                             <h2 className="text-lg font-black text-gray-900 tracking-tight">Time Tracker</h2>
                             <p className="text-xs text-gray-400 font-bold">Start tracking your time</p>
                         </div>
-                        <Button variant="primary" className="rounded-xl px-10 h-11 flex items-center gap-2" onClick={handleCheckIn}>
+                        <Button variant="primary" className="rounded-md px-10 h-11 flex items-center gap-2" onClick={handleCheckIn}>
                             <Play size={18} className="fill-white" />
                             <span>Check In</span>
                         </Button>
@@ -270,7 +270,7 @@ const EmployeeDashboard: React.FC = () => {
                             <h2 className="text-lg font-black text-gray-900 tracking-tight">Time Tracker Paused</h2>
                             <p className="text-xs text-gray-400 font-bold">Start tracking your time</p>
                         </div>
-                        <Button variant="primary" className="rounded-xl px-10 h-11 flex items-center gap-2" onClick={handleResume}>
+                        <Button variant="primary" className="rounded-md px-10 h-11 flex items-center gap-2" onClick={handleResume}>
                             <Play size={18} className="fill-white" />
                             <span>Resume</span>
                         </Button>
@@ -281,7 +281,7 @@ const EmployeeDashboard: React.FC = () => {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         {/* Custom Large Timer Output */}
                         <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-4 bg-[#F8F9FA] border border-gray-100 rounded-2xl px-6 py-2">
+                            <div className="flex items-center gap-4 bg-[#F8F9FA] border border-gray-100 rounded-md px-6 py-2">
                                 <div className="flex flex-col">
                                     <span className="text-2xl font-black text-gray-900 leading-none tracking-tight">{formatTime(seconds)}</span>
                                     <span className="text-[11px] text-gray-400 font-bold mt-0.5">Today's Time</span>
@@ -296,7 +296,7 @@ const EmployeeDashboard: React.FC = () => {
                         <div className="flex items-center gap-3">
                             <Button
                                 variant="outline"
-                                className="rounded-xl px-6 h-11 flex items-center gap-2 bg-[#FFA94D]/10 hover:bg-[#FFA94D]/20 text-[#E8590C] border-none font-bold"
+                                className="rounded-md px-6 h-11 flex items-center gap-2 bg-[#FFA94D]/10 hover:bg-[#FFA94D]/20 text-[#E8590C] border-none font-bold"
                                 onClick={handleBreak}
                             >
                                 <Coffee size={18} />
@@ -304,7 +304,7 @@ const EmployeeDashboard: React.FC = () => {
                             </Button>
                             <Button
                                 variant="outline"
-                                className="rounded-xl px-6 h-11 flex items-center gap-2 bg-[#FF6B6B]/10 hover:bg-[#FF6B6B]/20 text-[#C92A2A] border-none font-bold"
+                                className="rounded-md px-6 h-11 flex items-center gap-2 bg-[#FF6B6B]/10 hover:bg-[#FF6B6B]/20 text-[#C92A2A] border-none font-bold"
                                 onClick={handleCheckOut}
                             >
                                 <Square size={16} strokeWidth={3} className="fill-current" />
@@ -329,7 +329,7 @@ const EmployeeDashboard: React.FC = () => {
                         ) : activity?.map((act) => (
                             <div
                                 key={act.id}
-                                className="group cursor-pointer relative rounded-[1.25rem] border border-gray-100 overflow-hidden"
+                                className="group cursor-pointer relative rounded-md border border-gray-100 overflow-hidden"
                             >
                                 {/* Image */}
                                 <img
@@ -343,7 +343,7 @@ const EmployeeDashboard: React.FC = () => {
                                     <Badge
                                         variant="info"
                                         className={cn(
-                                            "text-[10px] font-black px-2 py-0.5 rounded-lg border-none",
+                                            "text-[10px] font-black px-2 py-0.5 rounded-md border-none",
                                             act.progress >= 90
                                                 ? "bg-[#005CDA] text-white"
                                                 : act.progress >= 50
@@ -402,23 +402,24 @@ const EmployeeDashboard: React.FC = () => {
             <Card className="flex flex-col gap-6 bg-white border-none shadow-sm">
                 <div className="flex flex-col    gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-primary-50 text-gradient-to-b from-[#005CDA] to-[#001F4A] rounded-xl">
+                        <div className="p-2 bg-primary-50 text-gradient-to-b from-[#005CDA] to-[#001F4A] rounded-md">
                             <Briefcase size={20} className="text-[#005CDA]" />
                         </div>
                         <h2 className="text-xl font-extrabold text-gray-900 tracking-tight">Projects Summary</h2>
                     </div>
                     <div className="flex items-center gap-4 w-full md:w-auto">
                         <div className="relative flex-1 md:w-64">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                            <input
-                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-medium focus:ring-2 focus:ring-primary-100 focus:border-primary-300 outline-none transition-all"
+                            <Input
                                 placeholder="Search projects..."
+                                leftIcon={Search}
                                 value={searchTerm}
                                 onChange={(e) => {
                                     setSearchTerm(e.target.value);
                                     setCurrentPage(1);
                                 }}
+                                containerClassName=""
                             />
+
                         </div>
                     </div>
                 </div>

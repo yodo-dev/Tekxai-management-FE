@@ -112,7 +112,7 @@ const TeamFormModal: React.FC<TeamFormModalProps> = ({ isOpen, onClose, team }) 
           onChange={handleInputChange}
           error={errors.name}
           placeholder="e.g. Frontend Avengers"
-          className="h-12 rounded-xl"
+          className="h-12 rounded-md"
         />
 
         <Select
@@ -121,7 +121,7 @@ const TeamFormModal: React.FC<TeamFormModalProps> = ({ isOpen, onClose, team }) 
           value={formData.type}
           onChange={handleSelectChange}
           error={errors.type}
-          className="h-12 !rounded-xl text-xs font-bold"
+          className="h-12  text-xs font-bold"
         />
 
         <Textarea
@@ -137,7 +137,7 @@ const TeamFormModal: React.FC<TeamFormModalProps> = ({ isOpen, onClose, team }) 
           <Button
             variant="outline"
             fullWidth
-            className="h-12 rounded-xl"
+            className="h-12 rounded-md"
             onClick={onClose}
           >
             Cancel
@@ -146,7 +146,7 @@ const TeamFormModal: React.FC<TeamFormModalProps> = ({ isOpen, onClose, team }) 
             variant="primary"
             fullWidth
             loading={createTeam.isPending || updateTeam.isPending}
-            className="h-12 rounded-xl font-bold shadow-lg shadow-primary-100"
+            className="h-12 rounded-md font-bold shadow-lg shadow-primary-100"
             onClick={handleSubmit}
           >
             {isEdit ? 'Save Changes' : 'Create Team'}

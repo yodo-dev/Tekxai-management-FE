@@ -96,7 +96,7 @@ const Sidebar: React.FC<SidebarProps> = memo(({ isOpen, onClose }) => {
                 <img src={texailogo} className='w-[100px] h-[50px] object-contain' />
                 <button
                     onClick={onClose}
-                    className="lg:hidden absolute right-4 p-2 hover:bg-gray-100 rounded-xl transition-colors text-gray-500"
+                    className="lg:hidden absolute right-4 p-2 hover:bg-gray-100 rounded-md transition-colors text-gray-500"
                 >
                     <X size={20} />
                 </button>
@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = memo(({ isOpen, onClose }) => {
                         end={l.end}
                         onClick={onClose}
                         className={({ isActive }) =>
-                            `flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all duration-300 group ` +
+                            `flex items-center gap-3 px-4 py-3 rounded-md font-bold transition-all duration-300 group ` +
                             (isActive
                                 ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white shadow-lg shadow-primary-100'
                                 : 'text-[#252525] hover:bg-blue-50 ')
@@ -148,20 +148,20 @@ const Sidebar: React.FC<SidebarProps> = memo(({ isOpen, onClose }) => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute bottom-full left-6 right-6 mb-4 bg-[#F2F7FF] rounded-[1.5rem] border border-blue-100 p-5 shadow-2xl z-50 flex flex-col gap-3"
+                            className="absolute bottom-full left-6 right-6 mb-4 bg-[#F2F7FF] rounded-md border border-blue-100 p-5 shadow-2xl z-50 flex flex-col gap-3"
                         >
                             <h4 className="text-[13px] font-black text-gray-900 leading-tight">
                                 Send a Portal invite link to a new Member
                             </h4>
 
-                            <div className="flex items-center gap-2 bg-white rounded-xl p-1.5 border border-blue-50">
+                            <div className="flex items-center gap-2 bg-white rounded-md p-1.5 border border-blue-50">
                                 <span className="flex-1 px-2 text-[11px] text-gray-400 font-medium truncate">
                                     https://yododesigns.com/
                                 </span>
                                 <button
                                     onClick={handleCopy}
                                     className={cn(
-                                        "flex items-center gap-1.5 px-4 py-2 rounded-lg text-[10px] font-black transition-all",
+                                        "flex items-center gap-1.5 px-4 py-2 rounded-md text-[10px] font-black transition-all",
                                         isCopied
                                             ? "bg-green-500 text-white"
                                             : "bg-[#005CDA] text-white hover:bg-[#0048B8]"
@@ -179,16 +179,16 @@ const Sidebar: React.FC<SidebarProps> = memo(({ isOpen, onClose }) => {
                     )}
                 </AnimatePresence>
 
-                <div className="bg-gradient-to-b from-[#005CDA] to-[#001F4A] rounded-[2rem] p-6 flex flex-col items-center text-center gap-4 shadow-xl relative overflow-hidden group">
+                <div className="bg-gradient-to-b from-[#005CDA] to-[#001F4A] rounded-md p-6 flex flex-col items-center text-center gap-4 shadow-xl relative overflow-hidden group">
                     <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all duration-700" />
                     <h1 className="text-[18px] font-bold text-white tracking-wide">
                         {isEmployeeView ? 'Employee Hub' : 'Share Your Board'}
                     </h1>
                     <button
                         onClick={() => !isEmployeeView && setIsInvitePopOpen(!isInvitePopOpen)}
-                        className="w-full bg-white text-[#0047AB] py-3 px-4 rounded-2xl text-[16px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all shadow-md active:scale-95"
+                        className="w-full bg-white text-[#0047AB] py-3 px-4 rounded-md text-[16px] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all shadow-md active:scale-95"
                     >
-                        <div className="h-5 w-5 rounded-full  flex items-center justify-center">
+                        <div className="h-5 w-5 rounded-md  flex items-center justify-center">
                             {isEmployeeView ? (
                                 <Users size={16} className="text-[#0047AB] fill-[#0047AB]" />
                             ) : (

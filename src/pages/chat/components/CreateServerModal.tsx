@@ -35,7 +35,7 @@ const CreateServerModal: React.FC<CreateServerModalProps> = ({ onClose, onCreate
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
         transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-        className="bg-white rounded-[2rem] shadow-2xl w-full max-w-md mx-4 overflow-hidden"
+        className="bg-white rounded-md shadow-2xl w-full max-w-md mx-4 overflow-hidden"
         onClick={e => e.stopPropagation()}
       >
         {step === 'type' ? (
@@ -51,7 +51,7 @@ const CreateServerModal: React.FC<CreateServerModalProps> = ({ onClose, onCreate
             </div>
             <button
               onClick={() => setStep('form')}
-              className="w-full bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white py-3.5 rounded-2xl font-bold text-sm hover:opacity-90 transition-all active:scale-95 shadow-lg"
+              className="w-full bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white py-3.5 rounded-md font-bold text-sm hover:opacity-90 transition-all active:scale-95 shadow-lg"
             >
               Create My Own
             </button>
@@ -65,7 +65,7 @@ const CreateServerModal: React.FC<CreateServerModalProps> = ({ onClose, onCreate
         ) : (
           <div className="p-8 flex flex-col gap-6">
             <div className="flex items-center gap-3">
-              <button onClick={() => setStep('type')} className="p-1.5 hover:bg-gray-100 rounded-xl transition-colors">
+              <button onClick={() => setStep('type')} className="p-1.5 hover:bg-gray-100 rounded-md transition-colors">
                 <ChevronRight size={18} className="text-gray-500 rotate-180" />
               </button>
               <div>
@@ -100,19 +100,19 @@ const CreateServerModal: React.FC<CreateServerModalProps> = ({ onClose, onCreate
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="My Awesome Server"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#005CDA]/30 focus:border-[#005CDA] transition-all"
+                className="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-sm font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#005CDA]/30 focus:border-[#005CDA] transition-all"
                 onKeyDown={e => e.key === 'Enter' && handleCreate()}
               />
             </div>
 
             <div className="flex gap-3">
-              <button onClick={onClose} className="flex-1 py-3 rounded-2xl border border-gray-200 text-sm font-bold text-gray-500 hover:bg-gray-50 transition-all">
+              <button onClick={onClose} className="flex-1 py-3 rounded-md border border-gray-200 text-sm font-bold text-gray-500 hover:bg-gray-50 transition-all">
                 Cancel
               </button>
               <button
                 onClick={handleCreate}
                 disabled={!name.trim()}
-                className="flex-1 py-3 rounded-2xl bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white text-sm font-bold hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 shadow-lg"
+                className="flex-1 py-3 rounded-md bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white text-sm font-bold hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 shadow-lg"
               >
                 Create Server
               </button>

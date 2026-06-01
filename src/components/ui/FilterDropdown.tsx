@@ -84,14 +84,14 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -8 }}
           transition={{ duration: 0.18, ease: 'easeOut' }}
-          className="absolute top-[calc(100%+8px)] right-0 w-[340px] bg-white rounded-2xl shadow-[0_16px_48px_rgba(0,0,0,0.14)] border border-gray-100 z-50 overflow-hidden"
+          className="absolute top-[calc(100%+8px)] right-0 w-[340px] bg-white rounded-md border border-gray-100 z-50 overflow-hidden"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
             <span className="font-black text-gray-900 text-base">Filter</span>
             <button
               onClick={onClose}
-              className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-500"
+              className="p-1.5 hover:bg-gray-100 rounded-md transition-colors text-gray-500"
             >
               <X size={16} strokeWidth={2.5} />
             </button>
@@ -105,7 +105,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                 value={filters.search}
                 onChange={(e) => set('search', e.target.value)}
                 placeholder="Search"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-md text-sm font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all"
               />
             </div>
           </div>
@@ -148,13 +148,13 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                 lastWeek: false, lastMonth: false, lastYear: false,
                 starredOnly: false, hasDescription: false
               })}
-              className="text-sm font-bold text-gray-500 hover:text-gray-700 transition-colors px-4 py-2 rounded-xl hover:bg-gray-50"
+              className="text-sm font-bold text-gray-500 hover:text-gray-700 transition-colors px-4 py-2 rounded-md hover:bg-gray-50"
             >
               Clear All
             </button>
             <Button
               onClick={onClose}
-              className="bg-[#005CDA] hover:bg-[#0048B8] text-white font-black text-sm px-6 py-2.5 rounded-xl transition-all active:scale-95 shadow-[0_4px_12px_rgba(0,92,218,0.3)]"
+              className="bg-[#005CDA] hover:bg-[#0048B8] text-white font-black text-sm px-6 py-2.5 rounded-md transition-all active:scale-95 "
             >
               Apply Filters
             </Button>

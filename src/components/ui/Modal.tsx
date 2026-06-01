@@ -50,7 +50,7 @@ const Modal: React.FC<Props> = ({ title, isOpen, onClose, children, footer, size
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className={classNames('relative bg-white w-full max-h-[90vh] overflow-y-auto rounded-[1.5rem] shadow-2xl z-10', sizes[size], customClass)}
+            className={classNames('relative bg-white w-full max-h-[90vh] overflow-y-auto rounded-md shadow-2xl z-10', sizes[size], customClass)}
           >
             {title ? (
               <div className="p-5 border-b border-gray-100 flex items-center justify-between">
@@ -59,7 +59,7 @@ const Modal: React.FC<Props> = ({ title, isOpen, onClose, children, footer, size
               </div>
             ) : null}
             <div className="p-6">{children}</div>
-            {footer ? <div className="p-5 border-t border-gray-100 bg-gray-50 rounded-b-[1.5rem]">{footer}</div> : null}
+            {footer ? <div className="p-5 border-t border-gray-100 bg-gray-50 rounded-b-md">{footer}</div> : null}
           </motion.div>
         </div>
       )}

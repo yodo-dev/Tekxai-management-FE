@@ -130,7 +130,7 @@ const VerifyOTP: React.FC = () => {
                                             }
                                         }}
                                         className={cn(
-                                            "w-full h-16 lg:h-20  text-center text-3xl font-black bg-white rounded-2xl border-2 transition-all outline-none",
+                                            "w-full h-16 lg:h-20  text-center text-3xl font-black bg-white rounded-md border-2 transition-all outline-none",
                                             val
                                                 ? "border-primary-500 text-primary-600 shadow-[0_5px_15px_rgba(31,123,255,0.1)]"
                                                 : "border-gray-300 text-gray-900 focus:border-primary-200 focus:bg-primary-50/10",
@@ -151,7 +151,7 @@ const VerifyOTP: React.FC = () => {
                                 disabled={verifyOTPMutation.isPending || isSubmitting}
                                 fullWidth
                                 size="lg"
-                                className="h-14 rounded-2xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-black tracking-tight"
+                                className="h-14 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-black tracking-tight"
                             >
                                 {verifyOTPMutation.isPending ? 'Verifying...' : 'Verify OTP'}
                             </Button>

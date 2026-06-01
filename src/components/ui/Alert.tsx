@@ -49,7 +49,7 @@ const Alert: React.FC<Props> = ({
     return (
         <div
             className={classNames(
-                'flex gap-3 p-4 rounded-lg border',
+                'flex gap-3 p-4 rounded-md border',
                 styles.bg,
                 styles.border,
                 className

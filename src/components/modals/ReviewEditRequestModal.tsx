@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Clock, AlertCircle } from 'lucide-react';
+import { Clock, AlertCircle } from 'lucide-react';
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
 import { EditRequest, useApproveEditRequestMutation, useRejectEditRequestMutation } from '@/services/timesheetService';
@@ -67,13 +67,13 @@ const ReviewEditRequestModal: React.FC<ReviewEditRequestModalProps> = ({ isOpen,
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-col gap-2">
                             <span className="text-[11px] font-black text-gray-400 uppercase tracking-widest ml-1">Reason for Adjustment</span>
-                            <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm italic text-gray-600 font-medium leading-relaxed">
+                            <div className="bg-white p-5 rounded-md border border-gray-100 shadow-sm  text-gray-600 font-medium leading-relaxed">
                                 "{request.reason}"
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 bg-amber-50 rounded-2xl border border-amber-100">
+                    <div className="flex items-center gap-3 p-4 bg-amber-50 rounded-md border border-amber-100">
                         <AlertCircle className="text-amber-500 shrink-0" size={18} />
                         <p className="text-[13px] font-bold text-amber-700 leading-snug">
                             Approving this will update the student's timesheet record with the requested changes.
@@ -84,7 +84,7 @@ const ReviewEditRequestModal: React.FC<ReviewEditRequestModalProps> = ({ isOpen,
                 <div className="flex items-center gap-3">
                     <Button
                         variant="outline"
-                        className="flex-1 rounded-xl h-14 font-black border-red-100 text-red-500 hover:bg-red-50"
+                        className="flex-1 rounded-md h-14 font-black border-red-100 text-red-500 hover:bg-red-50"
                         onClick={handleReject}
                         loading={rejectMutation.isPending}
                         disabled={approveMutation.isPending}
@@ -93,7 +93,7 @@ const ReviewEditRequestModal: React.FC<ReviewEditRequestModalProps> = ({ isOpen,
                     </Button>
                     <Button
                         variant="primary"
-                        className="flex-1 rounded-xl h-14 font-black shadow-lg shadow-primary-100"
+                        className="flex-1 rounded-md h-14 font-black shadow-lg shadow-primary-100"
                         onClick={handleApprove}
                         loading={approveMutation.isPending}
                         disabled={rejectMutation.isPending}

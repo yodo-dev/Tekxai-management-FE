@@ -65,7 +65,7 @@ const ResetPassword: React.FC = () => {
                                 onBlur={handleBlur}
                                 labelClassName="text-[10px] font-black text-gray-400 tracking-widest uppercase mb-1"
                                 error={touched.password && errors.password ? errors.password : undefined}
-                                className="h-14 rounded-2xl"
+                                className="h-14 rounded-md"
                             />
 
                             <FormInput
@@ -78,7 +78,7 @@ const ResetPassword: React.FC = () => {
                                 onBlur={handleBlur}
                                 labelClassName="text-[10px] font-black text-gray-400 tracking-widest uppercase mb-1"
                                 error={touched.confirmPassword && errors.confirmPassword ? errors.confirmPassword : undefined}
-                                className="h-14 rounded-2xl"
+                                className="h-14 rounded-md"
                             />
                         </div>
 
@@ -88,7 +88,7 @@ const ResetPassword: React.FC = () => {
                                 disabled={resetPasswordMutation.isPending || isSubmitting}
                                 fullWidth
                                 size="lg"
-                                className="h-14 rounded-2xl shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-black tracking-tight"
+                                className="h-14 rounded-md shadow-[0_10px_30px_rgba(31,123,255,0.2)] text-lg font-black tracking-tight"
                             >
                                 {resetPasswordMutation.isPending ? 'Updating...' : 'Set New Password'}
                             </Button>

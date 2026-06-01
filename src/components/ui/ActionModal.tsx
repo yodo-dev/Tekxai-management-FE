@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from '@/components/ui/Modal';
-import { Button } from '@/components/ui/Button';
+import { Button, ButtonVariant } from '@/components/ui/Button';
 import { AlertTriangle, LogOut, Trash2, Info } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
@@ -12,7 +12,7 @@ interface ActionModalProps {
   description: string;
   confirmText?: string;
   cancelText?: string;
-  confirmVariant?: 'danger' | 'primary' | 'warning';
+  variant?: ButtonVariant;
   loading?: boolean;
   icon?: 'logout' | 'delete' | 'warning' | 'info';
 }
@@ -25,7 +25,7 @@ const ActionModal: React.FC<ActionModalProps> = ({
   description,
   confirmText = 'Confirm',
   cancelText = 'Cancel',
-  confirmVariant = 'danger',
+  variant,
   loading = false,
   icon = 'warning'
 }) => {
@@ -54,16 +54,6 @@ const ActionModal: React.FC<ActionModalProps> = ({
     }
   };
 
-  const getConfirmBtnClass = () => {
-    switch (confirmVariant) {
-      case 'danger':
-        return 'bg-red-600 hover:bg-red-700 shadow-red-100';
-      case 'warning':
-        return 'bg-amber-500 hover:bg-amber-600 shadow-amber-100';
-      default:
-        return 'bg-primary-600 hover:bg-primary-700 shadow-primary-100';
-    }
-  };
 
   return (
     <Modal
@@ -73,7 +63,7 @@ const ActionModal: React.FC<ActionModalProps> = ({
       size="sm"
     >
       <div className="flex flex-col items-center text-center p-2">
-        <div className={cn("h-16 w-16 rounded-2xl flex items-center justify-center mb-6", getIconBg())}>
+        <div className={cn("h-16 w-16 rounded-md flex items-center justify-center mb-6", getIconBg())}>
           {getIcon()}
         </div>
 
@@ -90,17 +80,15 @@ const ActionModal: React.FC<ActionModalProps> = ({
             variant="outline"
             onClick={onClose}
             disabled={loading}
-            className="h-12 w-full rounded-xl font-bold text-gray-500 border-gray-200 hover:bg-gray-50 transition-all"
+            className="h-12 w-full rounded-md font-bold text-gray-500 border-gray-200 hover:bg-gray-50 transition-all"
           >
             {cancelText}
           </Button>
           <Button
             onClick={onConfirm}
             loading={loading}
-            className={cn(
-              "h-12 w-full rounded-xl font-bold text-white shadow-lg transition-all active:scale-95",
-              getConfirmBtnClass()
-            )}
+            variant={variant || (icon === 'delete' || icon === 'logout' ? 'danger' : 'primary')}
+            className="h-12 w-full rounded-md font-bold"
           >
             {confirmText}
           </Button>

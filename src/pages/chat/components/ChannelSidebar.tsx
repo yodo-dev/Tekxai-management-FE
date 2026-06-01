@@ -32,7 +32,7 @@ const ChannelSidebar: React.FC<ChannelSidebarProps> = ({ activeServer, channels,
           <button
             key={ch.id}
             onClick={() => onChannelSelect(ch)}
-            className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-sm font-bold transition-all duration-200 group ${activeChannelId === ch.id
+            className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-md text-sm font-bold transition-all duration-200 group ${activeChannelId === ch.id
               ? 'bg-gradient-to-b from-[#005CDA] to-[#001F4A] text-white'
               : 'text-gray-500 hover:bg-[#D7DADC]/60 hover:text-gray-800'
               }`}

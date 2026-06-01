@@ -12,7 +12,7 @@ import Card from '@/components/ui/Card';
 import Table, { Column } from '@/components/ui/Table';
 import Badge from '@/components/ui/Badge';
 import Tabs from '@/components/ui/Tabs';
-import { Check, X,  Calendar, Clock, SquarePen, Search, Loader2 } from 'lucide-react';
+import { Check, X, Calendar, Clock, SquarePen, Search, Loader2, Edit2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from '@/components/ui/Modal';
 import Input from '@/components/ui/Input';
@@ -22,6 +22,7 @@ import { useDebounce } from '@/hooks/useDebounce';
 import Select from '@/components/ui/Select';
 import { useToastContext } from '@/components/toast/ToastProvider';
 import { CardSkeleton } from '@/components/skeletons';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const TimesheetManagement: React.FC = () => {
     const toast = useToastContext();
@@ -109,7 +110,8 @@ const TimesheetManagement: React.FC = () => {
             header: 'Action',
             key: 'actions',
             render: (item) => (
-                <button
+                <ActionButton
+                    variant='outline'
                     onClick={() => {
                         setSelectedEntry(item);
                         setEditForm({
@@ -119,16 +121,28 @@ const TimesheetManagement: React.FC = () => {
                         });
                         setIsEditModalOpen(true);
                     }}
-                    className="p-2 hover:bg-primary-50 text-primary-500 rounded-lg transition-all active:scale-95 group"
-                >
-                    <SquarePen size={18} className="group-hover:scale-110 transition-transform" />
-                </button>
+                    Icon={Edit2}
+                />
+                // <button
+                //     onClick={() => {
+                //         setSelectedEntry(item);
+                //         setEditForm({
+                //             checkIn: item.check_in || '',
+                //             checkOut: item.check_out || '',
+                //             reason: ''
+                //         });
+                //         setIsEditModalOpen(true);
+                //     }}
+                //     className="p-2 hover:bg-primary-50 text-primary-500 rounded-md transition-all active:scale-95 group"
+                // >
+                //     <SquarePen size={18} className="group-hover:scale-110 transition-transform" />
+                // </button>
             )
         }
     ];
 
-    const isTabLoading = (activeTab === 'All Entries' && isTimesheetLoading) || 
-                       ((activeTab === 'Edit Requests' || activeTab === 'Time Off Requests') && isRequestsLoading);
+    const isTabLoading = (activeTab === 'All Entries' && isTimesheetLoading) ||
+        ((activeTab === 'Edit Requests' || activeTab === 'Time Off Requests') && isRequestsLoading);
 
     return (
         <div className="flex flex-col gap-8">
@@ -159,7 +173,7 @@ const TimesheetManagement: React.FC = () => {
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         containerClassName="min-w-[300px]"
-                                        className="h-10 rounded-xl text-sm"
+                                        className="rounded-md text-sm"
                                     />
                                     <Select
                                         options={[
@@ -171,7 +185,7 @@ const TimesheetManagement: React.FC = () => {
                                         ]}
                                         value={statusFilter}
                                         onChange={(val) => setStatusFilter(val as string)}
-                                        className="h-10 !rounded-xl text-xs font-black min-w-[140px]"
+                                        className=" min-w-[140px]"
                                     />
                                 </div>
                             )}
@@ -227,16 +241,16 @@ const TimesheetManagement: React.FC = () => {
                                                 </div>
                                                 <span className="text-xs font-bold text-gray-400">{req.date_range_label || req.time}</span>
                                             </div>
-                                            <Button variant='primary' onClick={() => { setSelectedRequest(req); setIsRequestEditModalOpen(true); }} className='rounded-xl py-2 text-xs'>
+                                            <Button variant='primary' onClick={() => { setSelectedRequest(req); setIsRequestEditModalOpen(true); }} className='rounded-md py-2 text-xs'>
                                                 Review
                                             </Button>
                                         </div>
-                                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                        <div className="bg-gray-50 p-4 rounded-md border border-gray-100">
                                             <p className="text-sm font-medium text-gray-500">{req.reason}</p>
                                         </div>
                                     </div>
                                 )) : (
-                                    <div className="text-center py-12 italic ">No edit requests found.</div>
+                                    <div className="text-center py-12  ">No edit requests found.</div>
                                 )}
                             </motion.div>
                         )}
@@ -253,7 +267,7 @@ const TimesheetManagement: React.FC = () => {
                                 {isRequestsLoading ? (
                                     Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)
                                 ) : timeOffRequests.length ? timeOffRequests.map((req) => (
-                                    <div key={req.id} className="bg-white p-6 rounded-[2rem] border border-gray-100 flex flex-col gap-6 shadow-sm hover:shadow-md transition-all">
+                                    <div key={req.id} className="bg-white p-6 rounded-md border border-gray-100 flex flex-col gap-6 shadow-sm hover:shadow-md transition-all">
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center gap-3">
                                                 <img src={req.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(req.name || 'Unknown User')}&background=random`} className="h-12 w-12 rounded-full border-4 border-white shadow-sm ring-1 ring-gray-100" alt={req.name || ''} />
@@ -278,7 +292,7 @@ const TimesheetManagement: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex flex-col gap-2 min-h-[100px]">
+                                        <div className="bg-gray-50 p-6 rounded-md border border-gray-100 flex flex-col gap-2 min-h-[100px]">
                                             <span className="text-[11px] font-black text-gray-400 uppercase tracking-widest">Reason</span>
                                             <p className="text-sm font-medium text-gray-500 leading-relaxed">{req.reason}</p>
                                         </div>
@@ -287,7 +301,7 @@ const TimesheetManagement: React.FC = () => {
                                             <button
                                                 disabled={approveMutation.isPending || rejectMutation.isPending}
                                                 onClick={() => handleRejectTimeOff(req.id)}
-                                                className="flex-1 py-3.5 bg-red-100 text-red-600 font-black text-sm rounded-xl hover:bg-red-200 transition-all active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50"
+                                                className="flex-1 py-3.5 bg-red-100 text-red-600 font-black text-sm rounded-md hover:bg-red-200 transition-all active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50"
                                             >
                                                 {rejectMutation.isPending ? <Loader2 className="animate-spin" size={18} /> : <><X size={18} strokeWidth={3} /> Reject</>}
                                             </button>
@@ -295,14 +309,14 @@ const TimesheetManagement: React.FC = () => {
                                                 variant='primary'
                                                 loading={approveMutation.isPending}
                                                 onClick={() => handleApproveTimeOff(req.id)}
-                                                className="flex-1 py-3.5 text-sm transition-all rounded-xl active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-blue-100"
+                                                className="flex-1 py-3.5 text-sm transition-all rounded-md active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-blue-100"
                                             >
                                                 <Check size={18} strokeWidth={3} /> Approve
                                             </Button>
                                         </div>
                                     </div>
                                 )) : (
-                                    <div className="col-span-full text-center py-12 italic">No time-off requests found.</div>
+                                    <div className="col-span-full text-center py-12 ">No time-off requests found.</div>
                                 )}
                             </motion.div>
                         )}
@@ -344,7 +358,7 @@ const TimesheetManagement: React.FC = () => {
                     <div className="flex flex-col gap-1.5">
                         <label className="text-sm font-black text-gray-700 ml-1">Reason for Edit (Required)</label>
                         <textarea
-                            className="w-full min-h-[150px] rounded-2xl border border-gray-200 p-5 text-sm font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-50 transition-all resize-none bg-white"
+                            className="w-full min-h-[150px] rounded-md border border-gray-200 p-5 text-sm font-medium text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-50 transition-all resize-none bg-white"
                             placeholder="Explain why this edit is being made...."
                             value={editForm.reason}
                             onChange={(e) => setEditForm({ ...editForm, reason: e.target.value })}
@@ -356,7 +370,7 @@ const TimesheetManagement: React.FC = () => {
                             fullWidth
                             variant="primary"
                             size="lg"
-                            className="rounded-xl py-4 font-black shadow-lg shadow-blue-100"
+                            className="rounded-md py-4 font-black shadow-lg shadow-blue-100"
                             onClick={handleUpdateEntry}
                             loading={updateMutation.isPending}
                         >
@@ -366,7 +380,7 @@ const TimesheetManagement: React.FC = () => {
                             fullWidth
                             variant="outline"
                             size="lg"
-                            className="rounded-xl py-4 font-bold border-none bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-600 transition-all shadow-none"
+                            className="rounded-md py-4 font-bold border-none bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-600 transition-all shadow-none"
                             onClick={() => setIsEditModalOpen(false)}
                             disabled={updateMutation.isPending}
                         >

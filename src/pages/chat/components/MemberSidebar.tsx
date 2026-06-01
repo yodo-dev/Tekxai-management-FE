@@ -31,7 +31,7 @@ const MemberSidebar: React.FC<MemberSidebarProps> = ({ isVisible, users }) => {
                 {onlineUsers.map(user => (
                   <button
                     key={user.id}
-                    className="w-full flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-[#D7DADC] transition-colors group text-left"
+                    className="w-full flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-[#D7DADC] transition-colors group text-left"
                   >
                     <div className="relative flex-shrink-0">
                       <div className={`w-8 h-8 rounded-full bg-gradient-to-b ${getAvatarColor(user.name)} flex items-center justify-center text-white text-[10px] font-black`}>
@@ -60,7 +60,7 @@ const MemberSidebar: React.FC<MemberSidebarProps> = ({ isVisible, users }) => {
                 {offlineUsers.map(user => (
                   <button
                     key={user.id}
-                    className="w-full flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-[#D7DADC] transition-colors group text-left opacity-50 hover:opacity-70"
+                    className="w-full flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-[#D7DADC] transition-colors group text-left opacity-50 hover:opacity-70"
                   >
                     <div className="relative flex-shrink-0">
                       <div className={`w-8 h-8 rounded-full bg-gradient-to-b from-gray-300 to-gray-400 flex items-center justify-center text-white text-[10px] font-black`}>

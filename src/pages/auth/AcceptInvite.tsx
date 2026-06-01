@@ -11,7 +11,7 @@ import { validateRegisterForm } from '@/utils/validationSchemas';
 /* ─── UI Helpers ─── */
 const ErrorState: React.FC<{ title: string; subtitle: string; icon?: React.ReactNode }> = ({ title, subtitle, icon }) => (
     <div className="flex flex-col items-center justify-center text-center gap-6 py-12 px-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-        <div className="w-20 h-20 rounded-2xl bg-red-50 flex items-center justify-center text-red-500 shadow-sm border border-red-100">
+        <div className="w-20 h-20 rounded-md bg-red-50 flex items-center justify-center text-red-500 shadow-sm border border-red-100">
             {icon || (
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
@@ -93,7 +93,7 @@ const AcceptInvite: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="p-6 bg-primary-50/50 border border-primary-100 rounded-2xl flex items-start gap-4">
+                <div className="p-6 bg-primary-50/50 border border-primary-100 rounded-md flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-primary-200">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" />
@@ -109,7 +109,7 @@ const AcceptInvite: React.FC = () => {
                     variant="primary" 
                     size="lg" 
                     fullWidth 
-                    className="h-14 rounded-xl shadow-xl shadow-primary-100 font-bold text-lg"
+                    className="h-14 rounded-md shadow-xl shadow-primary-100 font-bold text-lg"
                     onClick={() => navigate('/login', { state: { fromInvite: token, email } })}
                 >
                     Log In to Continue
@@ -139,7 +139,7 @@ const AcceptInvite: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="p-8 border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center gap-4 text-center">
+                <div className="p-8 border-2 border-dashed border-gray-200 rounded-md flex flex-col items-center gap-4 text-center">
                    <div className="w-14 h-14 bg-gray-50 rounded-full flex items-center justify-center text-gray-400">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
                    </div>
@@ -153,7 +153,7 @@ const AcceptInvite: React.FC = () => {
                     variant="primary" 
                     size="lg" 
                     fullWidth 
-                    className="h-14 rounded-xl shadow-xl shadow-primary-100 font-bold text-lg"
+                    className="h-14 rounded-md shadow-xl shadow-primary-100 font-bold text-lg"
                     loading={redeemMutation.isPending}
                     onClick={handleRedeemAction}
                 >
@@ -254,7 +254,7 @@ const AcceptInvite: React.FC = () => {
                                 size="lg"
                                 loading={redeemMutation.isPending}
                                 disabled={redeemMutation.isPending}
-                                className="h-14 rounded-xl shadow-xl shadow-primary-100 font-bold text-lg"
+                                className="h-14 rounded-md shadow-xl shadow-primary-100 font-bold text-lg"
                             >
                                 Get Started
                             </Button>

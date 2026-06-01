@@ -170,7 +170,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
             onChange={handleInputChange}
             error={errors.first_name}
             placeholder="John"
-            className="h-12 rounded-xl"
+            className="h-12 rounded-md"
           />
           <Input
             label="Last Name *"
@@ -179,7 +179,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
             onChange={handleInputChange}
             error={errors.last_name}
             placeholder="Doe"
-            className="h-12 rounded-xl"
+            className="h-12 rounded-md"
           />
         </div>
 
@@ -191,7 +191,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
           error={errors.email}
           placeholder="user@example.com"
           type="email"
-          className="h-12 rounded-xl"
+          className="h-12 rounded-md"
         />
 
         <Input
@@ -202,7 +202,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
           error={errors.password}
           placeholder="••••••••"
           type="password"
-          className="h-12 rounded-xl"
+          className="h-12 rounded-md"
         />
 
         <div className="grid grid-cols-1 gap-4">
@@ -211,7 +211,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
             options={statuses}
             value={formData.status}
             onChange={handleSelectChange('status')}
-            className="h-12 !rounded-xl"
+            className="h-12 "
           />
         </div>
 
@@ -223,7 +223,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
             onChange={handleSelectChange('department')}
             error={errors.department}
             placeholder="Select Department"
-            className="h-12 !rounded-xl"
+            className="h-12 l"
           />
 
           <div className="grid grid-cols-2 gap-4">
@@ -234,7 +234,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
               onChange={handleSelectChange('team_id')}
               placeholder={formData.department ? "Select Team" : "Select Department First"}
               disabled={!formData.department}
-              className="h-12 !rounded-xl"
+              className="h-12 "
             />
             <Select
               label="DESIGNATION"
@@ -243,7 +243,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
               onChange={handleSelectChange('designation')}
               placeholder={formData.department ? "Select Designation" : "Select Department First"}
               disabled={!formData.department}
-              className="h-12 !rounded-xl"
+              className="h-12 "
             />
           </div>
         </div>
@@ -252,7 +252,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
           <Button
             variant="outline"
             fullWidth
-            className="h-12 rounded-xl"
+            className="h-12 rounded-md"
             onClick={onClose}
           >
             Cancel
@@ -261,7 +261,7 @@ const UserFormModal: React.FC<UserFormModalProps> = ({ isOpen, onClose, user }) 
             variant="primary"
             fullWidth
             loading={createUser.isPending || updateUser.isPending}
-            className="h-12 rounded-xl font-bold shadow-lg shadow-primary-100"
+            className="h-12 rounded-md font-bold shadow-lg shadow-primary-100"
             onClick={handleSubmit}
           >
             {isEdit ? 'Save Changes' : 'Create User'}

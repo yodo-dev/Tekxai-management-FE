@@ -21,7 +21,7 @@ const Skeleton: React.FC<Props> = ({
   const variantClasses = {
     text: 'h-4 rounded',
     circular: 'rounded-full aspect-square',
-    rectangular: 'rounded-xl'
+    rectangular: 'rounded-md'
   };
 
   const animationClasses = {

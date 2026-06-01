@@ -88,7 +88,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full md:w-[90%] xl:w-[80%] max-w-[1400px] h-full bg-white shadow-2xl z-[141] flex flex-col md:rounded-l-[3rem] overflow-hidden"
+            className="fixed inset-y-0 right-0 w-full md:w-[90%] xl:w-[80%] max-w-[1400px] h-full bg-white shadow-2xl z-[141] flex flex-col md:rounded-l-md overflow-hidden"
           >
             {/* Header Controls */}
             <div className="flex items-center gap-3 p-6 border-b border-gray-100 bg-white sticky top-0 z-10 shrink-0">
@@ -151,14 +151,14 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                             +{(project.all_members?.length || project.member_count) - 5}
                           </div>
                         )}
-                        {(!(project.all_members || project.members) || (project.all_members || project.members).length === 0) && <span className="text-xs text-gray-400 font-bold italic">No members</span>}
+                        {(!(project.all_members || project.members) || (project.all_members || project.members).length === 0) && <span className="text-xs text-gray-400 font-bold ">No members</span>}
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">End Date</span>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm text-black font-bold bg-white border border-gray-100 px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-2">
+                        <span className="text-sm text-black font-bold bg-white border border-gray-100 px-3 py-1.5 rounded-md shadow-sm flex items-center gap-2">
                           <CalendarIcon size={14} className="text-gray-400" />
                           {project.end_date ? new Date(project.end_date).toLocaleDateString() : 'N/A'}
                         </span>
@@ -171,7 +171,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                     <div className="flex flex-col gap-2">
                       <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Estimated</span>
                       <div className="flex items-center">
-                        <span className="text-sm font-bold bg-white border border-gray-100 px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-2 text-gray-700">
+                        <span className="text-sm font-bold bg-white border border-gray-100 px-3 py-1.5 rounded-md shadow-sm flex items-center gap-2 text-gray-700">
                           <Clock size={14} className="text-gray-400" /> {project.total_hours} Hours
                         </span>
                       </div>
@@ -180,7 +180,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                     <div className="flex flex-col gap-2">
                       <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Status</span>
                       <Badge variant="info" className={cn(
-                        "px-6 py-2 text-white font-black text-sm rounded-xl tracking-wide shadow-lg border-none",
+                        "px-6 py-2 text-white font-black text-sm rounded-md tracking-wide shadow-lg border-none",
                         project.status === 'COMPLETED' ? 'bg-[#00A36C] shadow-[#00A36C22]' : 'bg-[#005CDA] shadow-[#005CDA22]'
                       )}>
                         {project.status || 'PENDING'}
@@ -194,7 +194,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                       <MessageSquare size={18} strokeWidth={3} className="text-primary-500" />
                       <span>Project Description</span>
                     </div>
-                    <div className="p-6 bg-white border border-gray-100 rounded-[2rem] shadow-sm tracking-tight text-gray-600 font-medium leading-relaxed text-[15px]">
+                    <div className="p-6 bg-white border border-gray-100 rounded-md shadow-sm tracking-tight text-gray-600 font-medium leading-relaxed text-[15px]">
                       {project.description || 'No description provided for this project.'}
                     </div>
                   </div>
@@ -220,13 +220,13 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                       <Button
                         leftIcon={Plus}
                         onClick={() => setShowCreateMilestone(true)}
-                        className="bg-[#005CDA11] hover:bg-[#005CDA22] border-none font-black text-[11px] h-9 rounded-xl py-0 px-4"
+                        className="bg-[#005CDA11] hover:bg-[#005CDA22] border-none font-black text-[11px] h-9 rounded-md py-0 px-4"
                       >
                         Create Milestone
                       </Button>
                     </div>
                     {lists.map((list) => (
-                      <div key={list.id} className="flex flex-col bg-white border border-gray-100 rounded-[2rem] shadow-sm overflow-hidden">
+                      <div key={list.id} className="flex flex-col bg-white border border-gray-100 rounded-md shadow-sm overflow-hidden">
                         <button
                           onClick={() => toggleExpand(list.id)}
                           className="w-full flex items-center justify-between p-6 hover:bg-gray-50/50 transition-colors border-b border-transparent data-[expanded=true]:border-gray-100"
@@ -263,7 +263,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95, x: -10 }}
-                                    className="group flex flex-col sm:flex-row sm:items-center justify-between p-3 hover:bg-gray-50 rounded-2xl transition-all"
+                                    className="group flex flex-col sm:flex-row sm:items-center justify-between p-3 hover:bg-gray-50 rounded-md transition-all"
                                   >
                                     <div className="flex items-start sm:items-center gap-3">
                                       {item.isDone ? (
@@ -275,10 +275,10 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                                     </div>
 
                                     <div className="flex items-center gap-4 mt-2 sm:mt-0 justify-end opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity">
-                                      <div className="flex items-center gap-1.5 text-gray-400 font-bold text-[10px] uppercase tracking-tighter bg-white border border-gray-100 px-2.5 py-1 rounded-lg">
+                                      <div className="flex items-center gap-1.5 text-gray-400 font-bold text-[10px] uppercase tracking-tighter bg-white border border-gray-100 px-2.5 py-1 rounded-md">
                                         <MessageSquare size={13} /> {item.comments} Comments
                                       </div>
-                                      <button onClick={() => deleteItem(list.id, item.id)} className="h-8 w-8 flex items-center justify-center text-gray-300 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all">
+                                      <button onClick={() => deleteItem(list.id, item.id)} className="h-8 w-8 flex items-center justify-center text-gray-300 hover:text-red-500 hover:bg-red-50 rounded-md transition-all">
                                         <Trash2 size={16} strokeWidth={2.5} />
                                       </button>
                                     </div>
@@ -293,11 +293,11 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                                     setActiveMilestoneId(list.id);
                                     setShowAddTask(true);
                                   }}
-                                  className="bg-primary-50 border-none font-black h-10 px-6 rounded-xl text-xs gap-2"
+                                  className="bg-primary-50 border-none font-black h-10 px-6 rounded-md text-xs gap-2"
                                 >
                                   Add task
                                 </Button>
-                                <button className="flex items-center gap-2 text-red-500 font-black hover:bg-red-50 px-4 py-2 rounded-xl transition-all text-xs uppercase tracking-widest">Delete milestone</button>
+                                <button className="flex items-center gap-2 text-red-500 font-black hover:bg-red-50 px-4 py-2 rounded-md transition-all text-xs uppercase tracking-widest">Delete milestone</button>
                               </div>
                             </motion.div>
                           )}
@@ -309,7 +309,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
 
                 {/* Right Side Sidebar Widget */}
                 <div className="w-full lg:w-[320px] 2xl:w-[380px] bg-white p-8 flex flex-col gap-10 shrink-0">
-                  <div className="flex flex-col rounded-[2rem] overflow-hidden bg-white border border-blue-50 shadow-sm">
+                  <div className="flex flex-col rounded-md overflow-hidden bg-white border border-blue-50 shadow-sm">
                     <div className="bg-blue-50 px-6 py-5 font-black text-gray-900 tracking-tight text-[15px]">Project Health</div>
                     <div className="p-6 flex flex-col gap-6">
                       <div className="flex items-center gap-3 w-full">
@@ -321,7 +321,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                       </div>
                       <div className="flex flex-col gap-3">
                         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Deadline Alert</span>
-                        <Button onClick={() => setShowRequestModael(true)} className="flex items-center justify-center gap-3 w-full bg-[#005CDA] hover:bg-[#0048B8] text-white px-6 py-3.5 rounded-2xl font-black text-[13px] shadow-lg shadow-blue-100 active:scale-95 transition-all">
+                        <Button onClick={() => setShowRequestModael(true)} className="flex items-center justify-center gap-3 w-full bg-[#005CDA] hover:bg-[#0048B8] text-white px-6 py-3.5 rounded-md font-black text-[13px] shadow-lg shadow-blue-100 active:scale-95 transition-all">
                           Request Extension <ArrowRight size={16} strokeWidth={3} />
                         </Button>
                       </div>
@@ -356,7 +356,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                             </div>
                           </div>
                         ) : (
-                          <span className="text-xs text-gray-400 italic font-bold">No owner assigned</span>
+                          <span className="text-xs text-gray-400  font-bold">No owner assigned</span>
                         )}
                       </div>
                     </div>
@@ -379,7 +379,7 @@ const ProjectDetailsSlideOver: React.FC<SlideOverProps> = ({ isOpen, onClose, pr
                             </div>
                           </div>
                         ) : (
-                          <span className="text-xs text-gray-400 italic font-bold">No leader assigned</span>
+                          <span className="text-xs text-gray-400  font-bold">No leader assigned</span>
                         )}
                       </div>
                     </div>

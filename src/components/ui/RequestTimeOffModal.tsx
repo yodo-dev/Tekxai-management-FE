@@ -78,8 +78,8 @@ const RequestTimeOffModal: React.FC<RequestTimeOffModalProps> = ({ isOpen, onClo
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size="sm"
-      customClass="max-w-[480px] overflow-hidden"
+      size="xl"
+      customClass="overflow-hidden"
       title="Request Time Off"
     >
       <div className="flex flex-col gap-6">
@@ -181,7 +181,7 @@ const RequestTimeOffModal: React.FC<RequestTimeOffModalProps> = ({ isOpen, onClo
               />
               <label
                 htmlFor="leave-file-upload"
-                className="flex items-center h-12 w-full border border-gray-200 rounded-xl overflow-hidden cursor-pointer group-hover:border-gray-300 transition-all bg-white"
+                className="flex items-center h-12 w-full border border-gray-200 rounded-md overflow-hidden cursor-pointer group-hover:border-gray-300 transition-all bg-white"
               >
                 <div className="px-4 py-2 border-r border-gray-100 bg-gray-50 text-gray-900 text-sm font-black flex items-center gap-2">
                   Choose File
@@ -207,7 +207,7 @@ const RequestTimeOffModal: React.FC<RequestTimeOffModalProps> = ({ isOpen, onClo
             <Button
               type="button"
               variant="outline"
-              className="flex-1 rounded-xl h-12 font-black border-gray-200 text-gray-600"
+              className="flex-1 rounded-md h-12 font-black border-gray-200 text-gray-600"
               onClick={onClose}
             >
               Cancel
@@ -215,7 +215,7 @@ const RequestTimeOffModal: React.FC<RequestTimeOffModalProps> = ({ isOpen, onClo
             <Button
               type="submit"
               variant="primary"
-              className="flex-1 rounded-xl h-12 font-black shadow-lg shadow-primary-100"
+              className="flex-1 rounded-md h-12 font-black shadow-lg shadow-primary-100"
             >
               Submit Request
             </Button>

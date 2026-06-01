@@ -37,7 +37,7 @@ const FormInput: React.FC<Props> = ({
     return (
         <div className={cn("flex flex-col gap-1.5 w-full", className)}>
             {label ? (
-                <label className={cn("text-sm font-black text-gray-900 ml-1", labelClassName)} htmlFor={name}>
+                <label className={cn("text-base lowercase first-letter:capitalize font-semibold text-gray-700 ml-1", labelClassName)} htmlFor={name}>
                     {label}
                 </label>
             ) : null}
@@ -55,7 +55,7 @@ const FormInput: React.FC<Props> = ({
                     onBlur={onBlur}
                     type={actualType}
                     className={cn(
-                        "flex h-12 w-full rounded-2xl border border-gray-200 bg-white px-5 py-2 text-sm font-bold text-gray-700 placeholder:text-gray-400 focus-visible:outline-none focus:border-primary-500 focus:shadow-[0_0_0_4px_rgba(0,92,218,0.1)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-gray-300 disabled:cursor-not-allowed disabled:opacity-50",
+                        "flex h-12 w-full rounded-md border border-gray-200 bg-white px-5 py-2 text-sm font-bold text-gray-700 placeholder:text-gray-400 focus-visible:outline-none focus:border-primary-500 focus:shadow-[0_0_0_4px_rgba(0,92,218,0.1)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-gray-300 disabled:cursor-not-allowed disabled:opacity-50",
                         leftIcon && "pl-11",
                         (isPassword || rightIcon) && "pr-11",
                         error ? "border-red-500 focus:border-red-500 focus:shadow-[0_0_0_4px_rgba(239,68,68,0.1)]" : "focus:border-primary-500"

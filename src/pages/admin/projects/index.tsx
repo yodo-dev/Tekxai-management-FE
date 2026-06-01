@@ -14,6 +14,7 @@ import FilterDropdown, { FilterState } from '@/components/ui/FilterDropdown';
 import CreateProjectSlideOver from '@/components/ui/CreateProjectSlideOver';
 import ActionModal from '@/components/ui/ActionModal';
 import { useToastContext } from '@/components/toast/ToastProvider';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const defaultFilters: FilterState = {
   search: '', sortByLatest: false, last24Hours: false,
@@ -118,7 +119,7 @@ const ProjectManagement: React.FC = () => {
       render: (item) => (
         <div className="flex -space-x-2">
           {item.members?.slice(0, 3).map((m, i) => (
-            <div key={i} className="h-8 w-8 rounded-full border-2 border-white flex items-center justify-center text-[11px] font-bold text-white shadow-sm ring-1 ring-blue-100 overflow-hidden bg-gray-100">
+            <div key={i} className="h-8 w-8 rounded-full border-2 border-white flex items-center justify-center text-[11px] font-bold text-white  ring-1 ring-blue-100 overflow-hidden bg-gray-100">
               {m.avatar ? (
                 <img src={m.avatar} alt={m.first_name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
               ) : (
@@ -129,12 +130,12 @@ const ProjectManagement: React.FC = () => {
             </div>
           ))}
           {item.member_count > 3 && (
-            <div className="h-8 w-8 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center text-[11px] font-bold text-gray-500 shadow-sm">
+            <div className="h-8 w-8 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center text-[11px] font-bold text-gray-500 ">
               +{item.member_count - 3}
             </div>
           )}
           {(!item.members || item.members.length === 0) && (
-            <span className="text-[10px] text-gray-400 font-medium italic">No members</span>
+            <span className="text-[10px] text-gray-400 font-medium ">No members</span>
           )}
         </div>
       )
@@ -147,7 +148,7 @@ const ProjectManagement: React.FC = () => {
         <div className="flex items-center gap-3 w-40">
           <div className="h-1.5 flex-1 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-primary-500 rounded-full transition-all duration-1000 shadow-[0_0_8px_rgba(31,123,255,0.4)]"
+              className="h-full bg-primary-500 rounded-full transition-all duration-1000 "
               style={{ width: `${item.progress || 0}%` }}
             />
           </div>
@@ -167,7 +168,7 @@ const ProjectManagement: React.FC = () => {
         };
         const style = statusStyles[item.status] || 'bg-gray-50 text-gray-500 border-gray-100';
         return (
-          <Badge variant="info" className={cn("rounded-lg px-3 py-1 text-[10px] font-black tracking-tight border", style)}>
+          <Badge variant="info" className={cn("rounded-md px-3 py-1 text-[10px] font-black tracking-tight border", style)}>
             {item.status || 'Pending'}
           </Badge>
         );
@@ -179,27 +180,23 @@ const ProjectManagement: React.FC = () => {
       key: 'actions',
       render: (item) => (
         <div className="flex items-center gap-2">
-          <button
+          <ActionButton
+            Icon={Star}
             onClick={() => setProjectToToggleSave({ project: item, action: item.is_saved ? 'unsave' : 'save' })}
-            className="p-2 hover:bg-yellow-50 text-gray-400 hover:text-yellow-500 rounded-lg transition-all"
-            title={item.is_saved ? "Unsave Project" : "Save Project"}
-          >
-            <Star size={16} className={item.is_saved ? "fill-[#EAB308] text-[#EAB308]" : ""} />
-          </button>
-          <button
+            variant={"warning"}
+            iconColor={item.is_saved ? "fill-[#EAB308] text-[#EAB308]" : ""}
+          />
+          <ActionButton
+            Icon={Edit2}
             onClick={() => { setEditingProject(item); setIsFormOpen(true); }}
-            className="p-2 hover:bg-blue-50 text-gray-400 hover:text-blue-600 rounded-lg transition-all"
-            title="Edit Project"
-          >
-            <Edit2 size={16} />
-          </button>
-          <button
+            variant={"outline"}
+          />
+          <ActionButton
+            Icon={Trash2}
             onClick={() => setProjectToDelete(item)}
-            className="p-2 hover:bg-red-50 text-gray-400 hover:text-red-600 rounded-lg transition-all"
-            title="Delete Project"
-          >
-            <Trash2 size={16} />
-          </button>
+            variant={"danger"}
+          />
+
         </div>
       )
     }
@@ -229,6 +226,8 @@ const ProjectManagement: React.FC = () => {
         confirmText="Delete Project"
         loading={deleteMutation.isPending}
         icon="delete"
+        variant='danger'
+
       />
 
       <ActionModal
@@ -251,7 +250,7 @@ const ProjectManagement: React.FC = () => {
         <p className="text-sm text-gray-500 font-medium">Manage and track all your ongoing projects in one place.</p>
       </div>
 
-      <Card isLoading={isLoading} className="flex flex-col gap-8 shadow-2xl border-none">
+      <Card isLoading={isLoading} className="flex flex-col gap-8  border-none">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="flex flex-col sm:flex-row  w-full sm:items-center gap-4">
             <Input
@@ -260,7 +259,7 @@ const ProjectManagement: React.FC = () => {
               value={searchTerm}
               onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
               containerClassName="w-full lg:min-w-[280px]"
-              className="h-11 rounded-xl"
+              className="h-11 rounded-md"
             />
 
             <div className="relative sm:max-w-max w-full">
@@ -270,7 +269,7 @@ const ProjectManagement: React.FC = () => {
                 size="md"
                 onClick={() => setIsFilterOpen(prev => !prev)}
                 className={cn(
-                  "gap-2 border-gray-200 font-bold rounded-xl h-11 transition-colors w-full",
+                  "gap-2 border-gray-200 font-bold rounded-md h-11  w-full",
                   isFilterOpen ? "bg-primary-50 text-primary-600 border-primary-200" : "text-gray-600"
                 )}
               >
@@ -295,7 +294,7 @@ const ProjectManagement: React.FC = () => {
               variant="primary"
               size="md"
               onClick={() => { setEditingProject(null); setIsFormOpen(true); }}
-              className="gap-2 rounded-xl h-11 sm:min-w-[175px] sm:max-w-[175px] w-full text-[14px] font-black px-6 shadow-lg shadow-primary-100"
+              className="gap-2 rounded-md h-11 sm:min-w-[175px] sm:max-w-[175px] w-full text-[14px] font-black px-6 "
             >
               <Plus size={18} />
               Create Project

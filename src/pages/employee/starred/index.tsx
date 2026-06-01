@@ -168,10 +168,10 @@ const StarredQueries: React.FC = () => {
     const renderComments = () => (
         <div className="flex flex-col gap-6">
             {isLoading ? <Loader /> : listData.length === 0 ?
-                <div className="text-gray-400 font-bold text-sm flex bg-white rounded-xl items-center justify-center min-h-[300px]">No starred comments found.</div>
+                <div className="text-gray-400 font-bold text-sm flex bg-white rounded-md items-center justify-center min-h-[300px]">No starred comments found.</div>
                 : listData.map((query: any) => (
                     <div key={query.id} className="group flex items-center gap-6">
-                        <Card className="flex-1 p-6 flex flex-col gap-4 shadow-sm border-gray-100/50 hover:shadow-md transition-shadow relative overflow-hidden rounded-[2rem]">
+                        <Card className="flex-1 p-6 flex flex-col gap-4 shadow-sm border-gray-100/50 hover:shadow-md transition-shadow relative overflow-hidden rounded-md">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <img src={query.avatar} alt={query.author} className="h-10 w-10 rounded-full object-cover border-2 border-primary-50" />
@@ -205,7 +205,7 @@ const StarredQueries: React.FC = () => {
 
     const renderProjects = () => (
         <div className="flex flex-col gap-6">
-            {isLoading ? <Loader /> : listData.length === 0 ? <div className="text-gray-400 font-bold text-sm flex bg-white rounded-xl items-center justify-center min-h-[300px]">No starred projects found.</div> : listData.map((entry: any) => (
+            {isLoading ? <Loader /> : listData.length === 0 ? <div className="text-gray-400 font-bold text-sm flex bg-white rounded-md items-center justify-center min-h-[300px]">No starred projects found.</div> : listData.map((entry: any) => (
                 <div key={entry.id} className="flex flex-col gap-4">
                     <div className="flex items-center gap-3">
                         <img src={entry.avatar} alt={entry.author} className="h-6 w-6 rounded-full border border-gray-100" />
@@ -309,7 +309,7 @@ const StarredQueries: React.FC = () => {
 
     const renderTasks = () => (
         <div className="flex flex-col gap-8">
-            {isLoading ? <Loader /> : listData.length === 0 ? <div className="text-gray-400 font-bold text-sm flex bg-white rounded-xl items-center justify-center min-h-[300px]">No starred tasks found.</div> : listData.map((entry: any) => (
+            {isLoading ? <Loader /> : listData.length === 0 ? <div className="text-gray-400 font-bold text-sm flex bg-white rounded-md items-center justify-center min-h-[300px]">No starred tasks found.</div> : listData.map((entry: any) => (
                 <div key={entry.id} className="flex flex-col gap-4 ">
                     <div className="flex items-center gap-3">
                         <img src={entry.avatar} alt={entry.author} className="h-6 w-6 rounded-full border border-gray-100" />
@@ -350,7 +350,7 @@ const StarredQueries: React.FC = () => {
     );
 
     return (
-        <div className="flex flex-col gap-8 max-w-6xl mx-auto pb-20">
+        <div className="flex flex-col gap-8  mx-auto pb-20">
             <h1 className="text-3xl font-black text-gray-900 tracking-tight">Starred Queries</h1>
 
             <Tabs

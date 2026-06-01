@@ -11,6 +11,7 @@ import TeamFormModal from '@/components/ui/TeamFormModal';
 import Badge from '@/components/ui/Badge';
 import ActionModal from '@/components/ui/ActionModal';
 import { useDebounce } from '@/hooks/useDebounce';
+import ActionButton from '../../../components/ui/ActionButton';
 
 const teamTypes = [
     { value: 'ALL', label: 'All Teams' },
@@ -90,7 +91,7 @@ const TeamManagement: React.FC = () => {
             key: 'name',
             render: (item) => (
                 <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100">
+                    <div className="h-10 w-10 rounded-md bg-primary-50 flex items-center justify-center text-primary-600 border border-primary-100">
                         <Users size={18} strokeWidth={2.5} />
                     </div>
                     <span className="font-black text-gray-900 tracking-tight">{item.name}</span>
@@ -121,18 +122,8 @@ const TeamManagement: React.FC = () => {
             align: 'right',
             render: (item) => (
                 <div className="flex items-center justify-end gap-2">
-                    <button
-                        onClick={() => handleEditTeam(item)}
-                        className="p-2 text-gray-400 hover:text-primary-500 hover:bg-primary-50 rounded-xl transition-all"
-                    >
-                        <Edit2 size={18} />
-                    </button>
-                    <button
-                        onClick={() => handleDeleteTeam(item)}
-                        className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all"
-                    >
-                        <Trash2 size={18} />
-                    </button>
+                    <ActionButton variant='outline' Icon={Edit2} onClick={() => handleEditTeam(item)} />
+                    <ActionButton variant='danger' Icon={Trash2} onClick={() => handleDeleteTeam(item)} />
                 </div>
             )
         }
@@ -145,7 +136,7 @@ const TeamManagement: React.FC = () => {
                 <p className="text-sm text-gray-500 font-medium">Define and manage your organization's teams and hierarchy.</p>
             </div>
 
-            <Card className="flex flex-col gap-8 shadow-2xl border-none p-8 rounded-[2rem]">
+            <Card className="flex flex-col gap-8 shadow-2xl border-none p-8 rounded-md">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-4 w-full lg:w-auto">
                         <Input
@@ -154,14 +145,14 @@ const TeamManagement: React.FC = () => {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             containerClassName="w-full lg:min-w-[300px]"
-                            className="h-12 rounded-xl"
+                            className="h-12 rounded-md"
                         />
                         <div className="w-[220px]">
                             <Select
                                 options={teamTypes}
                                 value={filterType}
                                 onChange={(val) => setFilterType(val as string)}
-                                className="h-12 !rounded-xl text-xs font-bold"
+                                className="h-12  text-xs font-bold"
                             />
                         </div>
                     </div>
@@ -170,7 +161,7 @@ const TeamManagement: React.FC = () => {
                         variant="primary"
                         size="md"
                         onClick={handleAddTeam}
-                        className="gap-2 rounded-xl w-full lg:w-auto h-12 font-black px-8 shadow-lg shadow-primary-100"
+                        className="gap-2 rounded-md w-full lg:w-auto h-12 font-black px-8 shadow-lg shadow-primary-100"
                     >
                         <Plus size={20} />
                         Add New Team

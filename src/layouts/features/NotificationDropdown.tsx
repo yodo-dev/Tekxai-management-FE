@@ -100,7 +100,7 @@ const NotificationDropdown: React.FC<Props> = ({ isOpen, onClose, triggerRef }) 
     <div
       ref={dropdownRef}
       className={cn(
-        "absolute right-0 sm:right-6 top-[4.5rem] w-full sm:w-[420px] bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-100 z-50 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200",
+        "absolute right-0 sm:right-6 top-[4.5rem] w-full sm:w-[420px] bg-white rounded-md shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-gray-100 z-50 flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200",
         // Mobile overrides to make it full screen-ish or padded nice
         "max-sm:fixed max-sm:top-[5.5rem] max-sm:rounded-none max-sm:border-x-0 max-sm:max-h-[calc(100vh-5.5rem)]"
       )}

@@ -92,7 +92,7 @@ class ErrorBoundary extends React.Component<Props, State> {
             </div>
 
             {import.meta.env.DEV && this.state.error && (
-              <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-left">
+              <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-md text-left">
                 <h3 className="text-sm font-semibold text-red-800 mb-2">Error Details (Development Only):</h3>
                 <p className="text-xs text-red-700 font-mono mb-2">
                   {this.state.error.toString()}
